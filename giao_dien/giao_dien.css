@@ -1,0 +1,170 @@
+@font-face {
+    font-family: Roboto;
+    src: url('../phan_bo_tro/font_Roboto/Roboto-Regular.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto-Bold;
+    src: url('../phan_bo_tro/font_Roboto/Roboto-Bold.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto-Light;
+    src: url('../phan_bo_tro/font_Roboto/Roboto-Light.ttf');
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.title {
+    text-align: center;
+    padding: 20px 0;
+}
+
+div.menu_ngang a {
+	color:blue;
+	margin-left: 200px;
+	margin-right: 100px;
+	text-decoration: none;
+}
+div.menu_ngang a:hover {
+	color:red;
+}
+div.menu_doc a {
+	color:blue;
+	text-decoration: none;
+	display:block;
+}
+div.menu_doc a:hover {
+	color:red
+}
+div.phan_trang a {
+	font-size:36px;
+	margin-left:5px;
+	margin-right:5px;
+	text-decoration: none;
+	color:blue;
+}
+div.phan_trang a:hover {
+	color:red
+}
+#mo_ta {
+	color: rgb(110, 199, 247);
+}
+.trang_chu {
+    width: 200px;
+}
+.noi_bat, .moi {
+    width: 150px;
+}
+.single_item {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+.single_item h5 {
+    display: block;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-top: 10px;
+}
+.single_item h5 a {
+    color: #000;
+	text-decoration: none;
+}
+.single_item h5 a:hover {
+    color: #e97777;
+}
+.single_item img {
+    width: 100%;
+}
+
+.lazyload_item img {
+    transition: 0.5s;
+}
+
+.lazyload_item:hover img {
+    opacity: 0.6;
+}
+.width_form {
+    width: 500px;
+}
+.thong_bao_tim_kiem {
+    color: red;
+    text-align: center;
+    padding: 20px;
+}
+.category_paging a {
+    text-decoration: none;
+}
+.category_paging {
+    padding-bottom: 20px;
+    text-align: center;
+}
+.phan_trang {
+    color: black;
+    font-size: 13px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 10px 5px;
+    padding: 5px 10px;
+}
+.phan_trang:hover {
+    background-color: black;
+    color: white;
+}
+.ben_phai {
+    padding-left: 20px;
+}
+.gia {
+    font-size: 20px;
+}
+.so_luong {
+    font-size: 17px;
+    padding-right: 10px;
+}
+.btn_them_vao_gio {
+    padding: 10px 20px;
+    margin: 50px 0 50px 0;
+    color: rgb(52, 100, 125);
+    border-radius: 5px;
+    background-color: rgb(110, 199, 247);
+    border: 3px solid rgb(52, 100, 125);
+}
+.btn_them_vao_gio:hover {
+    color: rgb(110, 199, 247);
+    background-color: rgb(52, 100, 125);
+    border: 3px solid rgb(110, 199, 247);
+}
+
+#mo_ta {
+    padding-top: 40px;
+    text-align: center;
+}
+.mo_ta {
+    margin: 0 10px;
+    padding: 10px;
+    border: 2px solid rgb(110, 199, 247);
+}
+.mo_ta p {
+    color: rgb(52, 100, 125);
+}
+.bo_loc {
+    margin-bottom: 20px;
+}
