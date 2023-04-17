@@ -539,3 +539,7 @@ table {
 .thong_bao_sai {
     color: red;
 }
+.link {
+    color: red;
+    cursor: pointer;
+}

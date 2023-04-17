@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 15, 2023 lúc 04:46 PM
--- Phiên bản máy phục vụ: 10.4.27-MariaDB
--- Phiên bản PHP: 8.2.0
+-- Thời gian đã tạo: Th4 17, 2023 lúc 04:22 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,18 +40,6 @@ CREATE TABLE `banner` (
 
 INSERT INTO `banner` (`id`, `hinh`, `rong`, `cao`) VALUES
 (1, 'banner_2.png', '990px', '150px');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `bo_loc`
---
-
-CREATE TABLE `bo_loc` (
-  `id` int(11) NOT NULL,
-  `gia` int(255) NOT NULL,
-  `ten` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -94,11 +82,9 @@ CREATE TABLE `hoa_don` (
 --
 
 INSERT INTO `hoa_don` (`id`, `ten_nguoi_mua`, `email`, `dia_chi`, `dien_thoai`, `noi_dung`, `hang_duoc_mua`, `ngay_mua`, `tong_tien`) VALUES
-(7, 'quan', 'qwe@gmail.com', '12312312', '12132132', '213123132132132132132132132132', '28[|||]3[|||||]', '2023-04-15', 7800000),
-(8, 'Ho dang hoang', 'minhquany9@gmail.com', 'quan 1,HCM', '3123213', '1213132', '15[|||]1[|||||]19[|||]1[|||||]31[|||]1[|||||]', '2023-04-15', 5040000),
-(9, 'bon cai lu', 'minhquany8@gmail.com', 'quan 99, lao', '3123213', '123132132', '25[|||]2[|||||]11[|||]10[|||||]', '2023-04-15', 124600000),
-(10, 'no name', 'minhquany9@gmail.com', '123123132132123', '1212132132132', 'ok chua', '15[|||]1[|||||]', '2023-04-15', 1100000),
-(11, 'anh', 'qwe@gmail.com', 'nowhere', '113', '123132132', '7[|||]13[|||||]', '2023-04-15', 10140000);
+(1, 'quan', 'quan@gmail.com', 'quan', '123', 'quan', '7[|||]1[|||||]24[|||]1[|||||]', '2022-12-05', 1557000),
+(2, 'quan1', 'quan1@gmail.com', 'quan1', '123', 'quan1', '31[|||]8[|||||]', '2023-04-16', 30320000),
+(3, 'quan2', 'quan2', 'quan2', '123', 'quan2', '25[|||]1[|||||]', '2024-06-12', 2300000);
 
 -- --------------------------------------------------------
 
@@ -155,7 +141,7 @@ INSERT INTO `menu_ngang` (`id`, `ten`, `noi_dung`, `loai_menu`) VALUES
 --
 
 CREATE TABLE `nguoi_dung` (
-  `id` int(11) NOT NULL,
+  `nguoi_dung_id` int(11) NOT NULL,
   `tai_khoan` varchar(256) NOT NULL,
   `mat_khau` varchar(256) NOT NULL,
   `email` varchar(256) NOT NULL,
@@ -163,51 +149,19 @@ CREATE TABLE `nguoi_dung` (
   `ho_ten` varchar(255) NOT NULL,
   `so_dien_thoai` varchar(10) NOT NULL,
   `dia_chi` mediumtext NOT NULL,
-  `thanh_pho` varchar(255) NOT NULL
+  `tinh_thanh` mediumtext NOT NULL,
+  `quan_huyen` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `nguoi_dung`
 --
 
-INSERT INTO `nguoi_dung` (`id`, `tai_khoan`, `mat_khau`, `email`, `trang_thai`, `ho_ten`, `so_dien_thoai`, `dia_chi`, `thanh_pho`) VALUES
-(1, '111111', '111111', 'quan@gmail.com', '1', '', '0123456789', '', ''),
-(2, '222222', '222222', 'quan@gmail.com', '1', '', '0', '', ''),
-(9, '111111', '111111', 'quan@gmail.com', '0', '', '0', '', ''),
-(10, '333333', '333333', 'qwe123@gmail.com', '0', '', '0', '', ''),
-(11, '444444', '444444', 'minhquany8@gmail.com', '0', '', '0', '', ''),
-(12, '555555', '555555', 'qwe@gmail.com', '0', '', '0', '', ''),
-(13, '666666', '666666', 'minhquany8@gmail.com', '0', '', '0', '', ''),
-(14, 'dsa', 'adsdas', 'dssd@gmail.com', '0', '', '', '', ''),
-(15, 'admin', '123456', 'qwe@gmail.com', '0', '', '', '', ''),
-(16, 'minhquan123', '123123', 'qxe@gmai.com', '0', '', '', '', ''),
-(17, '213321', '321132132123', 'qwe@gmail.com', '0', '', '', '', ''),
-(18, '213321', '321132132123', 'qwe@gmail.com', '0', '', '', '', ''),
-(19, 'a', 'a', 'anh@anh', '', '', '', '', ''),
-(20, 'a', 'a', 'anh@anh', '', '', '', '', ''),
-(21, '123', '123', 'minhquany9@gmail.com', '', '', '', '', ''),
-(22, '123', '123', 'qwe@gmail.com', '', '', '', '', ''),
-(23, '666666', '1', 'minhquany8@gmail.com', '', '', '', '', ''),
-(24, '1', '1', 'qwe123@gmail.com', '', '', '', '', ''),
-(25, '1', '1', 'qwe123@gmail.com', '', '', '', '', ''),
-(26, '1', '1', 'minhquany8@gmail.com', '', '', '', '', ''),
-(27, 'admin1', '123', 'qxe@gmai.com', '', '', '', '', ''),
-(28, '123', '123', 'minhquany9@gmail.com', '', '', '', '', ''),
-(29, '123', '123', 'qwe@gmail.com', '', '', '', '', ''),
-(30, 'admin1', '12', 'qwe@gmail.com', '', '', '', '', ''),
-(31, 'admin1', '123', 'qwe@gmail.com', '', '', '', '', ''),
-(32, 'admin1', '123', 'qxe@gmai.com', '', '', '', '', ''),
-(33, '12', '12', 'qwe@gmail.com', '', '', '', '', ''),
-(34, 'admin1', '123', 'qwe123@gmail.com', '', '', '', '', ''),
-(35, '1', '1', 'minhquany8@gmail.com', '', '', '', '', ''),
-(36, 'admin1', '1', 'minhquany6@gmail.com', '', '', '', '', ''),
-(37, '12', '12', 'minhquany6@gmail.com', '', '', '', '', ''),
-(38, '1', '1', 'minhquany9@gmail.com', '', '', '', '', ''),
-(39, 'admin', 'ádas', 'qwe@gmail.com', '', '', '', '', ''),
-(40, '111111', '111111', 'quan@gmail.com', '', '', '', '', ''),
-(41, 'okchua', 'okchua', 'okchua@gmail.com', '', 'okchua', '', 'okchua', 'okchua'),
-(42, 'qq', '123123', 'qq@gmail.com', '', '11', '', '123123', '23'),
-(43, 'qqa', '11', 'qqa@gmail.com', '', '11', '', '123123', '23');
+INSERT INTO `nguoi_dung` (`nguoi_dung_id`, `tai_khoan`, `mat_khau`, `email`, `trang_thai`, `ho_ten`, `so_dien_thoai`, `dia_chi`, `tinh_thanh`, `quan_huyen`) VALUES
+(46, 'quan', 'quan', 'quan@gmail.com', '', 'quan', '123123123', '123', 'Tỉnh Phú Thọ', 'Huyện Tam Nông'),
+(47, 'quan1', 'quan1', 'quan1@gmail.com', '', 'quan1', '547765475', 'áddsaas', 'Tỉnh Hải Dương', 'Huyện Thanh Miện'),
+(48, 'quan2', 'quan2', 'quan2@gmail.com', '', 'quan2', '789989898', '123', 'Tỉnh Lào Cai', 'Huyện Bảo Thắng'),
+(56, 'test', 'test', 'test@gmail.com', '', 'ok chua', '123', 'test', 'Tỉnh Bắc Ninh', 'Huyện Quế Võ');
 
 -- --------------------------------------------------------
 
@@ -337,12 +291,6 @@ ALTER TABLE `banner`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `bo_loc`
---
-ALTER TABLE `bo_loc`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `footer`
 --
 ALTER TABLE `footer`
@@ -370,7 +318,7 @@ ALTER TABLE `menu_ngang`
 -- Chỉ mục cho bảng `nguoi_dung`
 --
 ALTER TABLE `nguoi_dung`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`nguoi_dung_id`);
 
 --
 -- Chỉ mục cho bảng `quang_cao`
@@ -407,12 +355,6 @@ ALTER TABLE `banner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `bo_loc`
---
-ALTER TABLE `bo_loc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT cho bảng `footer`
 --
 ALTER TABLE `footer`
@@ -422,7 +364,7 @@ ALTER TABLE `footer`
 -- AUTO_INCREMENT cho bảng `hoa_don`
 --
 ALTER TABLE `hoa_don`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `menu_doc`
@@ -440,7 +382,7 @@ ALTER TABLE `menu_ngang`
 -- AUTO_INCREMENT cho bảng `nguoi_dung`
 --
 ALTER TABLE `nguoi_dung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `nguoi_dung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT cho bảng `quang_cao`
@@ -452,7 +394,7 @@ ALTER TABLE `quang_cao`
 -- AUTO_INCREMENT cho bảng `san_pham`
 --
 ALTER TABLE `san_pham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT cho bảng `slideshow`

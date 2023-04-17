@@ -96,7 +96,7 @@
 						<td><?php echo $ten; ?></td>
 						<td><?php echo $gia; ?></td>
 						<td><a href="<?php echo $link_sua; ?>">Sửa</a></td>
-						<td><a href="<?php echo $link_xoa; ?>">Xóa</a></td>
+                        <td class="link" onclick="if (confirmAlert()) window.location.href='<?php echo $link_xoa; ?>'">Xóa</td>
 					</tr>
 					<?php
 						}
@@ -117,3 +117,9 @@
         </div>
     </div>
 </div>
+<script>
+function confirmAlert() {
+    if (confirm("Bạn có muốn xóa sản phẩm này không?")) return true
+    else return false
+}
+</script>

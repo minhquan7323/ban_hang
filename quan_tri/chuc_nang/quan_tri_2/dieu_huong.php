@@ -96,6 +96,9 @@
 		case "them_nguoi_dung":
 			include("chuc_nang/nguoi_dung/them_nguoi_dung.php");
 		break;
+		case "sua_nguoi_dung":
+			include("chuc_nang/nguoi_dung/sua_nguoi_dung.php");
+		break;
 		case "sua_thong_tin_quan_tri":
 			include("chuc_nang/quan_tri_2/sua_thong_tin_quan_tri.php");
 		break;

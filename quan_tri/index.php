@@ -19,14 +19,11 @@
 	</head>
 	<body>
 		<?php 
-			if(!isset($xac_dinh_dang_nhap))
-			{
+			if(!isset($xac_dinh_dang_nhap)) {
 				include("chuc_nang/quan_tri_2/khung_dang_nhap.php");
 			}
-			else 
-			{
-				if($xac_dinh_dang_nhap=="co")
-				{
+			else {
+				if($xac_dinh_dang_nhap=="co") {
 					echo "<center>";
 						include("chuc_nang/quan_tri_2/trang_chu.php");
 					echo "</center>";

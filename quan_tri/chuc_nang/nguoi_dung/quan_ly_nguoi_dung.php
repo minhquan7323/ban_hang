@@ -9,7 +9,7 @@
 	$tv_2 = mysqli_fetch_array($tv_1);
 	$so_trang=ceil($tv_2[0]/$so_dong_tren_mot_trang);
 	$vtbd=($_GET['trang']-1)*$so_dong_tren_mot_trang;
-	$tv="select * from nguoi_dung order by id desc limit $vtbd,$so_dong_tren_mot_trang";
+	$tv="select * from nguoi_dung order by nguoi_dung_id desc limit $vtbd,$so_dong_tren_mot_trang";
 	$tv_1 = mysqli_query($conn, $tv);
 ?>
 
@@ -32,7 +32,7 @@
                         <th scope="col">Tài khoản</th>
                         <th scope="col">Mật khẩu</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Xóa</th>
+                        <th scope="col">Sửa</th>
                         <th scope="col">Khóa/Mở</th>
                         <th scope="col">Trạng thái</th>
                     </tr>
@@ -41,21 +41,20 @@
                 <tbody>
                     <?php
                         while ($tv_2 = mysqli_fetch_array($tv_1)) {
-                            $id = $tv_2['id'];
+                            $nguoi_dung_id = $tv_2['nguoi_dung_id'];
                             $tai_khoan = $tv_2['tai_khoan'];
                             $mat_khau = $tv_2['mat_khau'];
                             $email = $tv_2['email'];
                             $trang_thai = $tv_2['trang_thai'];
-                            $link_xoa="?xoa_nguoi_dung=co&id=".$id;
+                            $link_sua="?thamso=sua_nguoi_dung&nguoi_dung_id=".$nguoi_dung_id;
                     ?>
                     <tr>
                         <td><?php echo $tai_khoan; ?></td>
                         <td><?php echo $mat_khau; ?></td>
                         <td><?php echo $email; ?></td>
-                        <td><a href="<?php echo $link_xoa; ?>">Xóa</a></td>
+                        <td><a href="<?php echo $link_sua; ?>">Sửa</a></td>
                         <td></td>
                         <td></td>
-
                     </tr>
                     <?php
                         }
@@ -75,3 +74,10 @@
         </div>
     </div>
 </div>
+
+<script>
+function confirmAlert() {
+    if (confirm("Bạn có muốn xóa người dùng này không?")) return true
+    else return false
+}
+</script>

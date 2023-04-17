@@ -1,3 +1,12 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./giao_dien/giao_dien.css">
+		<link rel="stylesheet" href="./phan_bo_tro/fontawesome-free-6.2.0-web/css/all.css">
+		<link rel="stylesheet" href="./phan_bo_tro/font_Roboto/Roboto-Bold.ttf">
+		<link rel="stylesheet" href="./phan_bo_tro/bootstrap-5.2.2-dist/css/bootstrap.min.css">
+		<script src="./phan_bo_tro/bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
+	</head>	
+<body>
 <?php
 	$conn = new mysqli("localhost", "root", "", "ban_hang");
 	if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
@@ -9,51 +18,7 @@
 ?>
 <form action="./" method="get">
 	<input type="hidden" name="thamso" value="xuat_san_pham_loc">	
-	<div>
-		<div class="btn-group">
-			<button type="button" class="btn btn-secondary dropdown-toggle bo_loc" data-bs-toggle="dropdown" aria-expanded="false">
-				Bộ lọc
-			</button>
-			<ul class="dropdown-menu" style="width:300px">
-				<li>
-					<div class="form-check">
-						<input type="checkbox" name="loc_gia[]" value="0-200000" class="form-check-input" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">0 - 200.000 <u>đ</u></label>
-					</div>
-				</li>
-				<li>
-					<div class="form-check">
-						<input type="checkbox" name="loc_gia[]" value="200000-1000000" class="form-check-input" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">200.000 - 1.000.000 <u>đ</u></label>
-					</div>
-				</li>
-				<li>
-					<div class="form-check">
-						<input type="checkbox" name="loc_gia[]" value="1000000-5000000" class="form-check-input" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">1.000.000 - 5.000.000 <u>đ</u></label>
-					</div>
-				</li>
-				<li>
-					<div class="form-check">
-						<input type="checkbox" name="loc_gia[]" value="5000000-10000000" class="form-check-input" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">5.000.000 - 10.000.000 <u>đ</u></label>
-					</div>
-				</li>
-				<li>
-					<div class="form-check">
-						<input type="checkbox" name="loc_gia[]" value="10000000" class="form-check-input" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">>10.000.000 <u>đ</u></label>
-					</div>
-				</li>
-				<li>
-					<hr class="dropdown-divider">
-				</li>
-				<li>
-					<button type="submit" name="submit_loc" class="btn btn-secondary">Lọc</button>
-				</li>
-			</ul>
-		</div>
-	</div>
+	<?php include("chuc_nang/san_pham/bo_loc.php"); ?>
 <table>
 	<?php 
 		$id=$_GET['id'];
@@ -105,3 +70,5 @@
 	}
 ?>
 </div>
+</body>
+</html>

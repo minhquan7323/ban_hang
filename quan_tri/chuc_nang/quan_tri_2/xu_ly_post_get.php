@@ -47,6 +47,16 @@
 		include("chuc_nang/san_pham/xoa_san_pham.php");
 		trang_truoc_html();
 	}
+	if(isset($_GET['sua_nguoi_dung']))
+	{
+		include("chuc_nang/nguoi_dung/sua_nguoi_dung.php");
+		trang_truoc_html();
+	}
+	if(isset($_POST['bieu_mau_sua_nguoi_dung']))
+	{
+		include("chuc_nang/nguoi_dung/sua_nguoi_dung_trong_csdl.php");
+		trang_truoc_html();
+	}
 	if(isset($_GET['xoa_hoa_don']))
 	{
 		include("chuc_nang/hoa_don/xoa_hoa_don.php");

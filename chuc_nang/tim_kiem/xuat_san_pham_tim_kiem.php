@@ -55,21 +55,17 @@
 				}
 			echo "</tr>";
 		}
-		echo "<tr>";
-			echo "<td colspan='3' align='center' >";
-				echo "<div class='phan_trang' >";
-					for($i=1;$i<=$so_trang;$i++){
-						$link="?thamso=tim_kiem&tu_khoa=".urlencode($_GET['tu_khoa'])."&trang=".$i."";
-						echo "<a href='$link' >";
-							echo $i;echo " ";
-						echo "</a>";
-					}
-				echo "</div>";
-			echo "</td>";
-		echo "</tr>";
 		echo "</table>";
+		echo '<div class="category_paging">';
+			for($i=1;$i<=$so_trang;$i++) {
+				$link="?thamso=tim_kiem&tu_khoa=".urlencode($_GET['tu_khoa'])."&trang=".$i."";
+				echo "<a href='$link' class='phan_trang'>";
+				echo $i;
+				echo "</a> ";
+			}
+		echo '</div>';
 	}
 	else{
-	echo "<h5 class='thong_bao_tim_kiem'>Bạn chưa nhập từ khóa<h5>";
+	echo "<h5 class='thong_bao_tim_kiem'>Bạn chưa nhập từ khóa</h5>";
 	}
 ?>

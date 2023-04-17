@@ -3,26 +3,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tai_khoan = $_POST['tai_khoan'];
     $mat_khau = $_POST['mat_khau'];
 
-    if (empty($tai_khoan) || empty($mat_khau)) {
-        echo "Vui lòng điền đầy đủ thông tin.";
-    } else {
-        $conn = mysqli_connect("localhost", "root", "", "ban_hang");
-        $query = "SELECT * FROM nguoi_dung WHERE tai_khoan = '$tai_khoan'";
-        $result = mysqli_query($conn, $query);
+    $conn = mysqli_connect("localhost", "root", "", "ban_hang");
+    $query = "SELECT * FROM nguoi_dung WHERE tai_khoan = '$tai_khoan'";
+    $result = mysqli_query($conn, $query);
 
-        if (mysqli_num_rows($result) > 0) {
-            $nguoi_dung = mysqli_fetch_assoc($result);
+    if (mysqli_num_rows($result) > 0) {
+        $nguoi_dung = mysqli_fetch_assoc($result);
 
-            if ($mat_khau==$nguoi_dung['mat_khau']) {
-                // session_start();
-                $_SESSION['tai_khoan'] = $nguoi_dung['tai_khoan'];
-                $_SESSION['email'] = $nguoi_dung['email'];
+        if ($mat_khau==$nguoi_dung['mat_khau']) {
+            // session_start();
+            $_SESSION['tai_khoan'] = $nguoi_dung['tai_khoan'];
+            $_SESSION['email'] = $nguoi_dung['email'];
 
-                header('Location: ../../');
-                exit;
-            } else echo "Sai tên đăng nhập hoặc mật khẩu.";
+            header('Location: ../../');
+            exit;
         } else echo "Sai tên đăng nhập hoặc mật khẩu.";
-    }
+    } else echo "Sai tên đăng nhập hoặc mật khẩu.";
 }
 ?>
 

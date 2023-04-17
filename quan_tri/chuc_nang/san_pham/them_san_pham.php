@@ -16,16 +16,16 @@
 						<div class="row">
 							<div class="col-6">
 								<div class="form-floating mb-3">
-									<input name="ten" value="" type="text" class="form-control" id="floatingInput" placeholder="abc">
+									<input name="ten" value="" type="text" class="form-control" id="floatingInput" placeholder="abc" required>
 									<label for="floatingInput">Tên sản phẩm</label>
 								</div>
 								<div class="form-floating mb-3">
-									<input name="gia" value="" type="text" class="form-control" id="floatingInput" placeholder="123456">
+									<input name="gia" value="" type="text" class="form-control" id="floatingInput" placeholder="123456" required>
 									<label for="floatingInput">Giá</label>
 								</div>
 								<div class="form-floating mb-3">
 									<div class="as">
-										<span>Hình ảnh</span><input type="file" name="hinh_anh" class="btn btn-outline-secondary">
+										<span>Hình ảnh</span><input type="file" name="hinh_anh" class="btn btn-outline-secondary" required>
 									</div>
 								</div>
 							</div>

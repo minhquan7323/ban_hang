@@ -1,10 +1,10 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="../../giao_dien/giao_dien.css">
-		<link rel="stylesheet" href="../../phan_bo_tro/fontawesome-free-6.2.0-web/css/all.css">
-		<link rel="stylesheet" href="../../phan_bo_tro/font_Roboto/Roboto-Bold.ttf">
-		<link rel="stylesheet" href="../../phan_bo_tro/bootstrap-5.2.2-dist/css/bootstrap.min.css">
-		<script src="../../phan_bo_tro/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./giao_dien/giao_dien.css">
+		<link rel="stylesheet" href="./phan_bo_tro/fontawesome-free-6.2.0-web/css/all.css">
+		<link rel="stylesheet" href="./phan_bo_tro/font_Roboto/Roboto-Bold.ttf">
+		<link rel="stylesheet" href="./phan_bo_tro/bootstrap-5.2.2-dist/css/bootstrap.min.css">
+		<script src="./phan_bo_tro/bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
 	</head>
 	<body>
 		<h3 class="title">Sản phẩm của chúng tôi</h3>

@@ -28,6 +28,7 @@
 					<td colspan="3" height="50px">
 						<?php
 							include("chuc_nang/menu_ngang/menu_ngang.php");
+							// include("chuc_nang/slideshow/slideshow.php");
 						?> 
 					</td>
 				</tr>

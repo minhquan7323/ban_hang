@@ -50,16 +50,13 @@
 		$conn = new mysqli("localhost", "root", "", "ban_hang");
 		$tv_1 = mysqli_query($conn, $tv);
 		$tv_2 = mysqli_fetch_array($tv_1);
-		if($tv_2[0]==1)
-		{
+		if($tv_2[0]==1) {
 			$_SESSION['ky_danh']=$ky_danh;
 			$_SESSION['mat_khau']=$mat_khau;
 		}
-		else 
-		{
-			thong_bao_abc("Thông tin nhập vào không đúng");
+		else {
+			echo"Thông tin đăng nhập không đúng.";
 		}
-		trang_truoc_abc();
 	}
 	
 	if(isset($_SESSION['ky_danh']))
