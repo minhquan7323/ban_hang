@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-outline-success">Thêm người dùng</button>
+                <button type="submit" class="btn btn-outline-success" onclick="return confirm('Bạn có chắc chắn muốn thêm người dùng này?')">Thêm người dùng</button>
             </form>
         </table>
         </div>

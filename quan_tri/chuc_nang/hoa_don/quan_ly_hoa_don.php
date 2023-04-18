@@ -91,7 +91,7 @@
                         $tu_ngay = $_GET['tu_ngay'];
                         $den_ngay = $_GET['den_ngay'];
                         $query = "SELECT * FROM hoa_don WHERE ngay_mua BETWEEN '$tu_ngay' AND '$den_ngay'";
-                        $dia_chi_ct = "SELECT hoa_don.*,nguoi_dung.quan_huyen,nguoi_dung.tinh_thanh FROM hoa_don INNER JOIN nguoi_dung ON hoa_don.ten_nguoi_mua = nguoi_dung.ho_ten";
+                        $dia_chi_ct = "SELECT hoa_don.*, nguoi_dung.* FROM hoa_don INNER JOIN nguoi_dung ON hoa_don.ten_nguoi_mua = nguoi_dung.ho_ten";
                         $result = mysqli_query($conn, $query);
                         $result2 = mysqli_query($conn, $dia_chi_ct);
                         if (mysqli_num_rows($result) > 0) {
@@ -99,9 +99,9 @@
                                 $row2 = mysqli_fetch_assoc($result2);
                                 ?>
                                 <tr>
-                                    <td><?= $row['id']; ?></td>
-                                    <td><?= $row['ten_nguoi_mua']; ?></td>
-                                    <td><?= $row['dia_chi'] . ', ' . $row2['quan_huyen'] . ', ' . $row2['tinh_thanh']; ?></td>
+                                    <td><?= $row2['id']; ?></td>
+                                    <td><?= $row2['ho_ten']; ?></td>
+                                    <td><?= $row2['dia_chi'] . ', ' . $row2['quan_huyen'] . ', ' . $row2['tinh_thanh']; ?></td>
                                     <td><?= $row['dien_thoai']; ?></td>
                                     <td><?= number_format($row['tong_tien'], 0, ",", ".")."đ"; ?></td>
                                     <td></td>
@@ -114,7 +114,7 @@
                         $tinh_thanh = $_GET['tinh_thanh'];
                         $quan_huyen = $_GET['quan_huyen'];
                         $query = "SELECT * FROM nguoi_dung WHERE tinh_thanh = '$tinh_thanh' AND quan_huyen = '$quan_huyen'";
-                        $dia_chi_ct = "SELECT hoa_don.*,nguoi_dung.quan_huyen,nguoi_dung.tinh_thanh FROM hoa_don INNER JOIN nguoi_dung ON nguoi_dung.tinh_thanh = '$tinh_thanh' AND nguoi_dung.quan_huyen = '$quan_huyen'";
+                        $dia_chi_ct = "SELECT hoa_don.*,nguoi_dung.* FROM hoa_don INNER JOIN nguoi_dung ON nguoi_dung.tinh_thanh = '$tinh_thanh' AND nguoi_dung.quan_huyen = '$quan_huyen'";
                         $result = mysqli_query($conn, $query);
                         $result2 = mysqli_query($conn, $dia_chi_ct);
                         if (mysqli_num_rows($result) > 0) {
@@ -123,9 +123,9 @@
                                 ?>
                                 <tr>
                                     <td><?= $row2['id']; ?></td>
-                                    <td><?= $row2['ten_nguoi_mua']; ?></td>
+                                    <td><?= $row2['ho_ten']; ?></td>
                                     <td><?= $row2['dia_chi'] . ', ' . $row2['quan_huyen'] . ', ' . $row2['tinh_thanh']; ?></td>
-                                    <td><?= $row2['dien_thoai']; ?></td>
+                                    <td><?= $row2['so_dien_thoai']; ?></td>
                                     <td><?= number_format($row2['tong_tien'], 0, ",", ".")."đ"; ?></td>
                                     <td></td>
                                     <td><?= $row2['ngay_mua']; ?></td>
@@ -134,7 +134,7 @@
                             }
                         }
                     } else {
-                        $query = "SELECT hoa_don.*,nguoi_dung.quan_huyen,nguoi_dung.tinh_thanh FROM hoa_don INNER JOIN nguoi_dung ON hoa_don.ten_nguoi_mua = nguoi_dung.ho_ten";
+                        $query = "SELECT hoa_don.*,nguoi_dung.* FROM hoa_don INNER JOIN nguoi_dung ON hoa_don.ten_nguoi_mua = nguoi_dung.ho_ten";
                         $result = mysqli_query($conn, $query);
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -143,7 +143,7 @@
                                     <td><?= $row['id']; ?></td>
                                     <td><?= $row['ten_nguoi_mua']; ?></td>
                                     <td><?= $row['dia_chi'] . ', ' . $row['quan_huyen'] . ', ' . $row['tinh_thanh']; ?></td>
-                                    <td><?= $row['dien_thoai']; ?></td>
+                                    <td><?= $row['so_dien_thoai']; ?></td>
                                     <td><?= number_format($row['tong_tien'], 0, ",", ".")."đ"; ?></td>
                                     <td></td>
                                     <td><?= $row['ngay_mua']; ?></td>

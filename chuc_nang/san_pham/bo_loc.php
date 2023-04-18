@@ -44,11 +44,11 @@
 				<div class="container">
 					<div class="row">
 						<?php
-							$tv="select * from menu_doc";
-							$tv_1 = mysqli_query($conn, $tv);
-							while($tv_2=mysqli_fetch_array($tv_1)) {
-								$ten=$tv_2['ten'];
-								$id=$tv_2['id'];
+							$tv_loc="select * from menu_doc";
+							$tv_loc_1 = mysqli_query($conn, $tv_loc);
+							while($tv_loc_2=mysqli_fetch_array($tv_loc_1)) {
+								$ten=$tv_loc_2['ten'];
+								$id=$tv_loc_2['id'];
 								echo '<li class="col-6">
 									<div class="form-check">
 										<input type="checkbox" name="phan_loai[]" value="'.$id.'" class="form-check-input" id="flexCheckDefault">
@@ -64,8 +64,17 @@
 				<hr class="dropdown-divider">
 			</li>
 			<li>
-				<button type="submit" name="submit_loc" class="btn btn-secondary">Lọc</button>
+				<button type="submit" name="submit_loc" id="submit_loc_btn" class="btn btn-secondary">Lọc</button>
 			</li>
 		</ul>
 	</div>
 </div>
+<script>
+    document.getElementById("submit_loc_btn").addEventListener("click", function(event){
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+        if (checkboxes.length === 0) {
+            event.preventDefault();
+            alert("Vui lòng chọn ít nhất một bộ lọc trước khi tìm kiếm.");
+        }
+    });
+</script>

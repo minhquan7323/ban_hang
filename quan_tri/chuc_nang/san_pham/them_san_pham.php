@@ -105,7 +105,7 @@
 							<label for="floatingTextarea">Nội dung</label>
 						</div>
 					</div>
-					<button type="submit" name="bieu_mau_them_san_pham" class="btn btn-outline-success">Thêm sản phẩm</button>
+					<button type="submit" name="bieu_mau_them_san_pham" class="btn btn-outline-success" onclick="return confirm('Bạn có chắc chắn muốn thêm sản phẩm này?')">Thêm sản phẩm</button>
 				</form>
 			</table>
 		</div>

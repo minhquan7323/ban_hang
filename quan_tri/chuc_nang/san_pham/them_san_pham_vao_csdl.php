@@ -57,6 +57,7 @@
 				$_SESSION['danh_muc_menu']=$danh_muc;
 				$_SESSION['tuy_chon_trang_chu']=$trang_chu;
 				$_SESSION['tuy_chon_noi_bat']=$noi_bat;
+				header('Location: ../quan_tri/?thamso=quan_ly_san_pham');
 			}
 			else 
 			{

@@ -10,7 +10,7 @@
 	$tv_2 = mysqli_fetch_array($tv_1);
 
 	$link_hinh = "../hinh_anh/san_pham/" . $tv_2['hinh_anh'];
-	if (is_file($link_hinh)) unlink($link_hinh);
+	// if (is_file($link_hinh)) unlink($link_hinh);
 
 	if ($tv_2['trang_chu'] == 'co') {
 		$xoa_hien_thi = "UPDATE san_pham SET trang_chu = '' WHERE id = '$id'";

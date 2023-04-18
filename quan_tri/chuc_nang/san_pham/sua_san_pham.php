@@ -14,7 +14,7 @@
 	$noi_bat=$tv_2['noi_bat'];
 	$noi_dung=$tv_2['noi_dung'];
 	$ten_anh=$tv_2['hinh_anh'];
-	$link_hinh="../hinh_anh/img/".$ten_anh;
+	$link_hinh="../hinh_anh/img/".$tv_2['hinh_anh'];
 	$link_dong="?thamso=quan_ly_san_pham&id_menu=".$_GET['id_menu']."&trang=".$_GET['trang'];
 ?>
 <div class="content">
@@ -40,7 +40,8 @@
 								</div>
 								<div class="form-floating mb-3">
 									<div class="hinh_anh">
-										<input value="<?php echo $ten_anh; ?>" type="file" name="hinh_anh" class="btn btn-outline-secondary">
+										<input type="file" name="hinh_anh" class="btn btn-outline-secondary">
+										<input type="hidden" name="ten_anh" value="<?php echo $ten_anh; ?>" >
 									</div>
 								</div>
 							</div>

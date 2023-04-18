@@ -63,7 +63,7 @@
                         <label for="floatingInput">Họ và tên</label>
                     </div>
                     <div class="col-6 form-floating">
-                        <input type="text" value="<?php echo $tai_khoan; ?>" name="tai_khoan" class="form-control" placeholder="Tên đăng nhập" required>
+                        <input type="text" value="<?php echo $tai_khoan; ?>" name="tai_khoan" class="form-control" placeholder="Tên đăng nhập" required readonly>
                         <label for="floatingInput">Tài khoản</label>
                     </div>
                     <div class="col-6 form-floating">
@@ -71,7 +71,7 @@
                         <label for="floatingInput">Mật khẩu</label>
                     </div>
                     <div class="col-6 form-floating">
-                        <input type="email" value="<?php echo $email; ?>" name="email" class="form-control" placeholder="Email" required>
+                        <input type="email" value="<?php echo $email; ?>" name="email" class="form-control" placeholder="Email" required readonly>
                         <label for="floatingInput">Email</label>
                     </div>
                     <div class="col-6 form-floating">
