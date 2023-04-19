@@ -1,4 +1,4 @@
-<?php 
+<!-- <?php 
 	$conn = new mysqli("localhost", "root", "", "ban_hang");
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
@@ -10,4 +10,4 @@
 	$link_hinh = "hinh_anh/banner/".$tv_2['hinh'];	
 	echo "<img"." src='".$link_hinh."' width='".$tv_2['rong']."' height='".$tv_2['cao']."' >";
 	$conn->close();
-?>
+?> -->

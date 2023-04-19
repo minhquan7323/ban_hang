@@ -1,4 +1,4 @@
-<div>
+<div align="left">
 	<div class="btn-group">
 		<button type="button" class="btn btn-secondary dropdown-toggle bo_loc" data-bs-toggle="dropdown" aria-expanded="false">
 			Bộ lọc

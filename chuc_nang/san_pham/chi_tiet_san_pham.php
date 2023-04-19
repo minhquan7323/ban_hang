@@ -10,7 +10,8 @@
 	
 ?>
 <table>
-	<tr >
+	<br><br>
+	<tr>
 		<td width="300px" align="center" >
 			<img src="<?php echo $link_anh; ?>" width="300px" >
 		</td>

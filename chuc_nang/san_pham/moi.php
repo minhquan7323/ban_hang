@@ -1,4 +1,4 @@
-<p class="title">Sản phẩm mới</p>
+<p class="title">SẢN PHẨM MỚI</p>
 <center>
 	<?php 
 		$conn = new mysqli("localhost", "root", "", "ban_hang");

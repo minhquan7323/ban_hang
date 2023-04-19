@@ -3,10 +3,11 @@
 	if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 	$tv = "SELECT * FROM menu_doc ORDER BY id";
 	$tv_1 = $conn->query($tv);
+	echo '<p class="title">DANH MỤC</p>';
 	echo "<div class='menu_doc'>";
 	while ($tv_2 = $tv_1->fetch_assoc()) {
 		$link = "?thamso=xuat_san_pham&id=" . $tv_2['id'];
-		echo "<a href='$link'>" . $tv_2['ten'] . "</a>";
+		echo "<a href='$link'><i class='fa-solid fa-chevron-right'></i>".$tv_2['ten']."</a>";
 	}
 	echo "</div>";
 	$conn->close();

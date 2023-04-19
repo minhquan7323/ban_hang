@@ -7,5 +7,7 @@
 	echo "<h1>";
 		echo $tv_2['ten'];
 	echo "</h1>";
+	echo '<div align="start">';
 	echo $tv_2['noi_dung'];
+	echo '</div>';
 ?>

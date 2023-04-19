@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		<center>
-			<table width="990px">
+			<table width="100%">
 				<tr>
 					<td colspan="3"><?php include("chuc_nang/banner/banner.php"); ?></td>
 				</tr>
@@ -40,12 +40,12 @@
 						// include("chuc_nang/quang_cao/trai.php"); 
 					?>					
 					</td>
-					<td width="650px" valign="top" >
+					<td width="650px" align="center" valign="top" >
 						<?php 
 							include("chuc_nang/dieu_huong.php");
 						?>
 					</td>
-					<td width="170px" valign="top" >
+					<td width="170px" align="center" valign="top" >
 					<?php
 						// include("chuc_nang/nguoi_dung/vung_nguoi_dung.php");
 						// include("chuc_nang/tim_kiem/vung_tim_kiem.php");

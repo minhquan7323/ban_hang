@@ -31,26 +31,35 @@ a {
 }
 
 .title {
+    font-family: Roboto-Bold;
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0 10px;
 }
 
 div.menu_ngang a {
 	color:blue;
-	margin-left: 200px;
-	margin-right: 100px;
+	/* margin-left: 200px;
+	margin-right: 100px; */
 	text-decoration: none;
 }
 div.menu_ngang a:hover {
 	color:red;
 }
+.menu_doc {
+    padding-left: 60px;
+}
 div.menu_doc a {
-	color:blue;
+	color:black;
 	text-decoration: none;
 	display:block;
+    padding-bottom: 5px;
+}
+div.menu_doc a i {
+    font-size: 10px;
+	padding-right: 20px;
 }
 div.menu_doc a:hover {
-	color:red
+	color:#e97777;
 }
 div.phan_trang a {
 	font-size:36px;
@@ -66,7 +75,7 @@ div.phan_trang a:hover {
 	color: rgb(110, 199, 247);
 }
 .trang_chu {
-    width: 200px;
+    width: 220px;
 }
 .noi_bat, .moi {
     width: 150px;
@@ -74,6 +83,7 @@ div.phan_trang a:hover {
 .single_item {
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    margin: 20px;
     text-align: center;
 }
 .single_item h5 {
@@ -160,6 +170,7 @@ div.phan_trang a:hover {
 .mo_ta {
     margin: 0 10px;
     padding: 10px;
+    text-align: start;
     border: 2px solid rgb(110, 199, 247);
 }
 .mo_ta p {
@@ -167,6 +178,7 @@ div.phan_trang a:hover {
 }
 .bo_loc {
     margin-bottom: 20px;
+    margin-left: 55px;
 }
 
 
@@ -175,12 +187,12 @@ div.phan_trang a:hover {
 
 .footer {
     padding: 30px 0 0 0;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #e3f2fd;
+    color: rgb(52, 100, 125);
 }
 
 .footer a {
-    color: #dddddd;
+    color: rgb(52, 100, 125);
 }
 
 .footer h4 {
@@ -200,23 +212,23 @@ div.phan_trang a:hover {
     cursor: pointer;
     width: 40px;
     height: 40px;
-    background: #222;
+    background: rgb(110, 199, 247);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 10px;
     text-decoration: none;
     border-radius: 5px;
-    color: #fff;
+    color: rgb(52, 100, 125);
 }
 
 .addr li a:hover{
-    background-color: #fff;
+    background-color: rgb(52, 100, 125);
     /* color: #000; */
 }
 .addr li a:hover>i{
     /* background-color: #fff; */
-    color: #000;
+    color: #e3f2fd;
 }
 .news .col-2 {
     min-width: 60px;
@@ -262,4 +274,16 @@ div.phan_trang a:hover {
 
 .bold {
     font-family: Roboto-Bold;
+}
+
+
+
+
+
+
+
+
+
+.top_nav a {
+    color: rgb(52, 100, 125);
 }

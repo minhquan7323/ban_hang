@@ -1,4 +1,5 @@
 <?php
+session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tai_khoan = $_POST['tai_khoan'];
     $mat_khau = $_POST['mat_khau'];
@@ -9,12 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($result) > 0) {
         $nguoi_dung = mysqli_fetch_assoc($result);
-
         if ($mat_khau==$nguoi_dung['mat_khau']) {
-            // session_start();
-            $_SESSION['tai_khoan'] = $nguoi_dung['tai_khoan'];
-            $_SESSION['email'] = $nguoi_dung['email'];
-
+                $_SESSION['uid'] = $nguoi_dung['nguoi_dung_id'];
             header('Location: ../../');
             exit;
         } else echo "Sai tên đăng nhập hoặc mật khẩu.";

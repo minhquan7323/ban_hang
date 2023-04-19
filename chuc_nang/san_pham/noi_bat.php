@@ -1,4 +1,4 @@
-<p class="title">Sản phẩm nổi bật</p>
+<p class="title">SẢN PHẨM NỔI BẬT</p>
 <?php 
 	$tv="select id, ten, hinh_anh FROM san_pham WHERE noi_bat='co' ORDER BY id DESC LIMIT 0,3";
 	$conn = new mysqli("localhost", "root", "", "ban_hang");
