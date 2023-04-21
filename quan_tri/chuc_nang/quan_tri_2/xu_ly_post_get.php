@@ -137,6 +137,11 @@
 		include("chuc_nang/quan_tri_2/sua_thong_tin_quan_tri_o_trong_csdl.php");
 		trang_truoc_html();
 	}	
+	if(isset($_POST['trang_thai']))
+	{
+		include("chuc_nang/nguoi_dung/khoa_nguoi_dung.php");
+		trang_truoc_html();
+	}
 	if(isset($_GET['thamso']))
 	{
 		if($_GET['thamso']=="thoat")

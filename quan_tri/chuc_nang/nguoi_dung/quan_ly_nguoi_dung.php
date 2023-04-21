@@ -25,41 +25,54 @@
                 <a href="?thamso=them_nguoi_dung" class="addnew_btn"><i class="fas fa-plus"></i>Thêm người dùng</a>
             </div>
         </div>
+		
         <div class="table-responsive-lg">
             <table class="table table-bordered">
-                <thead>
-                    <tr class="table-secondary">
-                        <th scope="col">Tài khoản</th>
-                        <th scope="col">Mật khẩu</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Sửa</th>
-                        <th scope="col">Khóa/Mở</th>
-                        <th scope="col">Trạng thái</th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    <?php
-                        while ($tv_2 = mysqli_fetch_array($tv_1)) {
-                            $nguoi_dung_id = $tv_2['nguoi_dung_id'];
-                            $tai_khoan = $tv_2['tai_khoan'];
-                            $mat_khau = $tv_2['mat_khau'];
-                            $email = $tv_2['email'];
-                            $trang_thai = $tv_2['trang_thai'];
-                            $link_sua="?thamso=sua_nguoi_dung&nguoi_dung_id=".$nguoi_dung_id;
-                    ?>
-                    <tr>
-                        <td><?php echo $tai_khoan; ?></td>
-                        <td><?php echo $mat_khau; ?></td>
-                        <td><?php echo $email; ?></td>
-                        <td><a href="<?php echo $link_sua; ?>">Sửa</a></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <?php
-                        }
-                    ?>
-                </tbody>
+                <form action="" method="post">
+                    <thead>
+                        <tr class="table-secondary">
+                            <th scope="col">Tài khoản</th>
+                            <th scope="col">Mật khẩu</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Sửa</th>
+                            <th scope="col">Khóa/Mở</th>
+                            <th scope="col">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <?php
+                            while ($tv_2 = mysqli_fetch_array($tv_1)) {
+                                $nguoi_dung_id = $tv_2['nguoi_dung_id'];
+                                $tai_khoan = $tv_2['tai_khoan'];
+                                $mat_khau = $tv_2['mat_khau'];
+                                $email = $tv_2['email'];
+                                $trang_thai = $tv_2['trang_thai'];
+                                $link_sua="?thamso=sua_nguoi_dung&nguoi_dung_id=".$nguoi_dung_id;
+                                $a_1=""; $a_2="";
+                                if($trang_thai=="co") $a_2="selected";
+                        ?>
+                        <tr>
+                            <td><?php echo $tai_khoan; ?></td>
+                            <td><?php echo $mat_khau; ?></td>
+                            <td><?php echo $email; ?></td>
+                            <td><a href="<?php echo $link_sua; ?>">Sửa</a></td>
+                            <td>
+                            <select name="khoa_mo_<?php echo $nguoi_dung_id; ?>" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <option value="">Mở</option>
+                                <option value="co" <?php echo $a_2; ?>>Khóa</option>
+                            </select>
+                            </td>
+                            <td><?php echo $trang_thai =="co" ? 'đang khóa' : 'đang mở'; ?></td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                    </tbody>
+                    <div>
+            <button type="submit" name="trang_thai" class="btn btn-outline-success"style="width:100px;">Cập nhật</button>
+        </div>
+                </form>
             </table>
         </div>
         <div class="category_paging">
@@ -74,7 +87,6 @@
         </div>
     </div>
 </div>
-
 <script>
 function confirmAlert() {
     if (confirm("Bạn có muốn xóa người dùng này không?")) return true

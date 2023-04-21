@@ -5,18 +5,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mat_khau = $_POST['mat_khau'];
 
     $conn = mysqli_connect("localhost", "root", "", "ban_hang");
-    $query = "SELECT * FROM nguoi_dung WHERE tai_khoan = '$tai_khoan'";
+    $query = "SELECT * FROM nguoi_dung WHERE tai_khoan = '$tai_khoan' AND mat_khau = '$mat_khau'";
     $result = mysqli_query($conn, $query);
-
-    if (mysqli_num_rows($result) > 0) {
-        $nguoi_dung = mysqli_fetch_assoc($result);
-        if ($mat_khau==$nguoi_dung['mat_khau']) {
-                $_SESSION['uid'] = $nguoi_dung['nguoi_dung_id'];
-            header('Location: ../../');
-            exit;
-        } else echo "Sai tên đăng nhập hoặc mật khẩu.";
-    } else echo "Sai tên đăng nhập hoặc mật khẩu.";
-}
+    
+    if(mysqli_num_rows($result) > 0) {
+            $nguoi_dung = mysqli_fetch_assoc($result);
+            $trang_thai = $nguoi_dung['trang_thai'];
+            if($trang_thai=="co")
+                echo "<script>alert('Tài khoản đã bị khóa!');</script>";
+            else if ($mat_khau==$nguoi_dung['mat_khau']) {
+                    $_SESSION['uid'] = $nguoi_dung['nguoi_dung_id'];
+                    header('Location: ../../');
+                    exit;
+                } else echo "Sai tên đăng nhập hoặc mật khẩu.";
+            } else echo "Sai tên đăng nhập hoặc mật khẩu.";
+    }
 ?>
 
 <html>

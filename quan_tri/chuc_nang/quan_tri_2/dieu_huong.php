@@ -45,9 +45,6 @@
 		case "hoa_don":
 			include("chuc_nang/hoa_don/quan_ly_hoa_don.php");
 		break;
-		case "xem_hoa_don":
-			include("chuc_nang/hoa_don/xem_hoa_don.php");
-		break;
 		case "san_pham_trang_chu":
 			include("chuc_nang/san_pham_trang_chu/san_pham_trang_chu.php");
 		break;

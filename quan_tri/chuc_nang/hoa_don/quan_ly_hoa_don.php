@@ -52,23 +52,23 @@
             </form>
             <form action="./" method="get">
             <input type="hidden" name="thamso" value="hoa_don">
-                    <div class="row">
-                        <div class="col-4">
-                            <select name="tinh_thanh" class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm" required>
-                                <option value="" selected>Chọn tỉnh thành</option>           
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <select name="quan_huyen" class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm" required>
-                                <option value="" selected>Chọn quận huyện</option>
-                            </select>
-                        </div>
-                        <div class="col-2">
-                            <div class="form-group">
-                                <input type="submit" class="btn btn-primary" value="Lọc địa chỉ">
-                            </div>
+                <div class="row">
+                    <div class="col-4">
+                        <select name="tinh_thanh" class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm" required>
+                            <option value="" selected>Chọn tỉnh thành</option>           
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <select name="quan_huyen" class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm" required>
+                            <option value="" selected>Chọn quận huyện</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Lọc địa chỉ">
                         </div>
                     </div>
+                </div>
             </form>
         </div>
         <div class="table-responsive-lg">
@@ -85,71 +85,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
                 <?php
+                    $query = "SELECT hoa_don.*, nguoi_dung.* FROM hoa_don INNER JOIN nguoi_dung ON nguoi_dung.nguoi_dung_id = hoa_don.nguoi_dung_id";
                     if (isset($_GET['tu_ngay'], $_GET['den_ngay'])) {
                         $tu_ngay = $_GET['tu_ngay'];
                         $den_ngay = $_GET['den_ngay'];
-                        $query = "SELECT * FROM hoa_don WHERE ngay_mua BETWEEN '$tu_ngay' AND '$den_ngay'";
-                        $dia_chi_ct = "SELECT hoa_don.*, nguoi_dung.* FROM hoa_don INNER JOIN nguoi_dung ON hoa_don.ten_nguoi_mua = nguoi_dung.ho_ten";
-                        $result = mysqli_query($conn, $query);
-                        $result2 = mysqli_query($conn, $dia_chi_ct);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $row2 = mysqli_fetch_assoc($result2);
-                                ?>
-                                <tr>
-                                    <td><?= $row2['id']; ?></td>
-                                    <td><?= $row2['ho_ten']; ?></td>
-                                    <td><?= $row2['dia_chi'] . ', ' . $row2['quan_huyen'] . ', ' . $row2['tinh_thanh']; ?></td>
-                                    <td><?= $row['dien_thoai']; ?></td>
-                                    <td><?= number_format($row['tong_tien'], 0, ",", ".")."đ"; ?></td>
-                                    <td></td>
-                                    <td><?= $row['ngay_mua']; ?></td>
-                                </tr>
-                                <?php
-                            }
-                        }
+                        $query .= " WHERE hoa_don.ngay_mua BETWEEN '$tu_ngay' AND '$den_ngay'";
                     } else if (isset($_GET['tinh_thanh'], $_GET['quan_huyen'])) {
                         $tinh_thanh = $_GET['tinh_thanh'];
                         $quan_huyen = $_GET['quan_huyen'];
-                        $query = "SELECT * FROM nguoi_dung WHERE tinh_thanh = '$tinh_thanh' AND quan_huyen = '$quan_huyen'";
-                        $dia_chi_ct = "SELECT hoa_don.*,nguoi_dung.* FROM hoa_don INNER JOIN nguoi_dung ON nguoi_dung.tinh_thanh = '$tinh_thanh' AND nguoi_dung.quan_huyen = '$quan_huyen'";
-                        $result = mysqli_query($conn, $query);
-                        $result2 = mysqli_query($conn, $dia_chi_ct);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $row2 = mysqli_fetch_assoc($result2);
-                                ?>
-                                <tr>
-                                    <td><?= $row2['id']; ?></td>
-                                    <td><?= $row2['ho_ten']; ?></td>
-                                    <td><?= $row2['dia_chi'] . ', ' . $row2['quan_huyen'] . ', ' . $row2['tinh_thanh']; ?></td>
-                                    <td><?= $row2['so_dien_thoai']; ?></td>
-                                    <td><?= number_format($row2['tong_tien'], 0, ",", ".")."đ"; ?></td>
-                                    <td></td>
-                                    <td><?= $row2['ngay_mua']; ?></td>
-                                </tr>
-                                <?php
-                            }
-                        }
-                    } else {
-                        $query = "SELECT hoa_don.*,nguoi_dung.* FROM hoa_don INNER JOIN nguoi_dung ON hoa_don.ten_nguoi_mua = nguoi_dung.ho_ten";
-                        $result = mysqli_query($conn, $query);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                ?>
-                                <tr>
-                                    <td><?= $row['id']; ?></td>
-                                    <td><?= $row['ten_nguoi_mua']; ?></td>
-                                    <td><?= $row['dia_chi'] . ', ' . $row['quan_huyen'] . ', ' . $row['tinh_thanh']; ?></td>
-                                    <td><?= $row['so_dien_thoai']; ?></td>
-                                    <td><?= number_format($row['tong_tien'], 0, ",", ".")."đ"; ?></td>
-                                    <td></td>
-                                    <td><?= $row['ngay_mua']; ?></td>
-                                </tr>
-                                <?php
-                            }
+                        $query .= " WHERE hoa_don.tinh_thanh = '$tinh_thanh' AND hoa_don.quan_huyen = '$quan_huyen'";
+                    }
+                    $result = mysqli_query($conn, $query);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                            <tr>
+                                <td><?= $row['id']; ?></td>
+                                <td><?= $row['ten_nguoi_mua']; ?></td>
+                                <td><?= $row['dia_chi'] . ', ' . $row['quan_huyen'] . ', ' . $row['tinh_thanh']; ?></td>
+                                <td><?= $row['so_dien_thoai']; ?></td>
+                                <td><?= number_format($row['tong_tien'], 0, ",", ".")."đ"; ?></td>
+                                <td><?= $row['tinh_trang']; ?></td>
+                                <td><?= $row['ngay_mua']; ?></td>
+                            </tr>
+                <?php
                         }
                     }
                 ?>
@@ -168,8 +128,6 @@
         </div>
     </div>
 </div>
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script>
 	var citis = document.getElementById("city");

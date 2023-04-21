@@ -36,7 +36,7 @@
 		}
 	}
 	
-	echo "Giỏ hàng";
+	echo "<h3 class='title'>Giỏ hàng</h3>";
 	echo "<br>";
 	echo "<br>";
 	if($gio_hang=="khong") {
@@ -45,12 +45,14 @@
 	else {
 		echo "<form action='' method='post' >"; 
 		echo "<input type='hidden' name='cap_nhat_gio_hang' value='co' > ";
-		echo "<table>";
+		echo "<table class='gio_hang_tb'>";
 			echo "<tr>";
-				echo "<td width='200px' >Tên</td>";
-				echo "<td width='150px' >Số lượng</td>";
-				echo "<td width='150px' >Đơn giá</td>";
-				echo "<td width='170px' >Thành tiền</td>";
+				echo "<th width='300px' >Tên</th>";
+				echo "<th width='100px' >Số lượng</th>";
+				echo "<th width='100px' >Đơn giá</th>";
+				echo "<th width='100px' >Thành tiền</th>";
+				echo "<th width='100px' >Cập nhật</th>";
+				echo "<th width='100px' >Xóa</th>";
 			echo "</tr>";
 			$tong_cong=0;
 			for($i=0;$i<count($_SESSION['id_them_vao_gio']);$i++) {
@@ -71,22 +73,20 @@
 					echo "<input type='hidden' name='".$name_id."' value='".$_SESSION['id_them_vao_gio'][$i]."' >";
 					echo "<input type='number' min='1' style='width:50px' name='".$name_sl."' value='". $_SESSION['sl_them_vao_gio'][$i]."' > ";
 					echo "</td>";
-					echo "<td>".$tv_2['gia']."</td>";
-					echo "<td>".$tien."</td>";
+					echo "<td>".number_format($tv_2['gia'],0,",",".")."<u>đ</u></td>";
+					echo "<td>".number_format($tien,0,",",".")."<u>đ</u></td>";
+					echo "<td><input type='submit' value='Cập nhật' ></td>";
+					echo "<td><input type='submit' value='Xóa' ></td>";
 				echo "</tr>";
 				}
 			}	
-			echo "<tr>";
-				echo "<td>&nbsp;</td>";
-				echo "<td><input type='submit' value='Cập nhật' > </td>";
-				echo "<td>&nbsp;</td>";
-				echo "<td>&nbsp;</td>";
-			echo "</tr>";	
 		echo "</table>";
 		echo "</form>";
 		echo "<br>";
-		echo "Tổng giá trị đơn hàng là : ".$tong_cong." VNĐ";
-		include("chuc_nang/gio_hang/bieu_mau_mua_hang.php");
+		echo "<b>Tổng giá trị đơn hàng là</b> : ".number_format($tong_cong,0,",",".")."<u>đ</u><br><br	>";
+
+		if(isset($_SESSION['uid'])) echo "<a href='?thamso=hinh_thuc_thanh_toan'><button type='button' class='btn btn-success'>Tiến hành thanh toán</button></a>";
+		else echo "Bạn cần đăng nhập để tiến hành thanh toán. <a href='./chuc_nang/nguoi_dung/dang_nhap.php'>Đăng nhập</a>";
+
 	}
-	
 ?>

@@ -6,8 +6,8 @@
         $tv_dang_nhap = mysqli_query($conn,$dang_nhap);
         $row=mysqli_fetch_array($tv_dang_nhap);
         echo '
-        <span class="top_nav"><a class="nav-link">Hi, '.$row['ho_ten'].'</a></span>
-        <span class="top_nav"><a class="nav-link" href="./chuc_nang/nguoi_dung/dang_xuat.php">đăng xuất</a></span>
+            <span class="top_nav"><a class="nav-link" href="?thamso=thong_tin_nguoi_dung">Hi, '.$row['ho_ten'].'</a></span>
+            <span class="top_nav"><a class="nav-link" href="./chuc_nang/nguoi_dung/dang_xuat.php" onclick="return confirm(\'Bạn có chắc chắn muốn đăng xuất không?\')">đăng xuất</a></span>
         ';
     }else{ 
         echo '

@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <br>
-                <button type="submit" name="bieu_mau_sua_nguoi_dung" class="btn btn-outline-success">Sửa người dùng</button>
+                <button type="submit" name="bieu_mau_sua_nguoi_dung" class="btn btn-outline-success" onclick="return confirm('Bạn có chắc chắn muốn sửa người dùng này?')">Sửa người dùng</button>
             </form>
         </table>
         </div>

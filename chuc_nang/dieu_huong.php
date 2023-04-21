@@ -30,6 +30,18 @@
 		case "dang_ky":
 			include("chuc_nang/nguoi_dung/dang_ky.php");
 		break;
+		case "thong_tin_nguoi_dung":
+			include("chuc_nang/nguoi_dung/thong_tin_nguoi_dung.php");
+		break;
+		case "hinh_thuc_thanh_toan":
+			include("chuc_nang/gio_hang/hinh_thuc_thanh_toan.php");
+		break;
+		case "lich_su_don_hang":
+			include("chuc_nang/gio_hang/lich_su_don_hang.php");
+		break;
+		case "xem_hoa_don":
+			include("chuc_nang/gio_hang/chi_tiet_don_hang.php");
+		break;
 		default:
 			include("chuc_nang/slideshow/slideshow.php");	
 			include("chuc_nang/san_pham/san_pham_trang_chu.php");	

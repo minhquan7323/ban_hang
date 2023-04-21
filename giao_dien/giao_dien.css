@@ -287,3 +287,59 @@ div.phan_trang a:hover {
 .top_nav a {
     color: rgb(52, 100, 125);
 }
+.dia_chi_nhan_hang {
+    border: 2px solid rgb(110, 199, 247);
+    text-align: left;
+    padding: 20px;
+}
+.dia_chi_nhan_hang h4 {
+    color: rgb(52, 100, 125);
+}
+.san_pham_mua {
+    border: 2px solid rgb(110, 199, 247);
+    padding: 20px;
+    margin: 20px 0;
+}
+.san_pham_mua td {
+    padding: 10px 0;
+}
+.tong_cong {
+    height: 50px;
+}
+.phuong_thuc_thanh_toan h5 {
+    color: rgb(52, 100, 125);
+}
+.phuong_thuc_thanh_toan {
+    border: 2px solid rgb(110, 199, 247);
+    padding: 15px 0 10px 10px;
+    margin: 20px 0;
+    align-items: start;
+}
+.ghi_chu {
+    border: 2px solid rgb(110, 199, 247);
+    margin: 20px 0;
+    /* padding: 15px 0 10px 10px; */
+}
+.lsdh tr th, .lsdh th td {
+    padding: 10px 0;
+}
+.lsdh {
+    border: 2px solid rgb(110, 199, 247);
+    margin: 20px 0;
+    padding: 10px 0;
+
+}
+.chi_tiet_don_hang {
+    text-align: start;
+}
+.chi_tiet_don_hang div {
+    border: 2px solid rgb(110, 199, 247);
+    margin: 20px;
+    padding: 10px;
+}
+.chi_tiet_don_hang span {
+    font-size:large;
+}
+.gio_hang_tb {
+    border: 2px solid rgb(110, 199, 247);
+}
