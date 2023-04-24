@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 21, 2023 lúc 04:15 PM
+-- Thời gian đã tạo: Th4 24, 2023 lúc 01:37 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -86,16 +86,21 @@ CREATE TABLE `hoa_don` (
 --
 
 INSERT INTO `hoa_don` (`id`, `nguoi_dung_id`, `ten_nguoi_mua`, `email`, `dia_chi`, `quan_huyen`, `tinh_thanh`, `dien_thoai`, `noi_dung`, `hang_duoc_mua`, `ngay_mua`, `tong_tien`, `tinh_trang`) VALUES
-(22, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '30[|||]1[|||||]', '2022-07-03', 5400000, ''),
-(23, 47, 'quan1', 'quan1@gmail.com', 'áddsaas', 'Huyện Thanh Miện', 'Tỉnh Hải Dương', '547765475', 'cc', '31[|||]1[|||||]', '2023-04-20', 3790000, ''),
-(24, 47, 'quan1', 'quan1@gmail.com', 'áddsaas', 'Huyện Thanh Miện', 'Tỉnh Hải Dương', '547765475', '', '4[|||]1[|||||]19[|||]1[|||||]', '2023-04-20', 23150000, ''),
-(25, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '7[|||]1[|||||]8[|||]1[|||||]', '2023-04-20', 1750000, ''),
-(26, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '14[|||]124[|||||]20[|||]2[|||||]31[|||]2[|||||]', '2023-04-21', 71016000, 'đã thanh toán'),
-(27, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '32[|||]1[|||||]', '2023-04-21', 4000000, ''),
-(28, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '32[|||]3[|||||]', '2023-04-21', 12000000, 'đang vận chuyển'),
-(29, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '26[|||]1[|||||]', '2023-04-21', 2600000, 'đã thanh toán'),
-(30, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '32[|||]1[|||||]', '2023-04-21', 4000000, ''),
-(31, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '31[|||]1[|||||]', '2023-04-21', 3790000, 'đang vận chuyển');
+(22, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '30[|||]1[|||||]', '2022-07-03', 5400000, 'Đang xử lý'),
+(23, 47, 'quan1', 'quan1@gmail.com', 'áddsaas', 'Huyện Thanh Miện', 'Tỉnh Hải Dương', '547765475', 'cc', '31[|||]1[|||||]', '2023-04-20', 3790000, 'Đã xác nhận'),
+(24, 47, 'quan1', 'quan1@gmail.com', 'áddsaas', 'Huyện Thanh Miện', 'Tỉnh Hải Dương', '547765475', '', '4[|||]1[|||||]19[|||]1[|||||]', '2023-04-20', 23150000, 'Đã gửi hàng'),
+(25, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '7[|||]1[|||||]8[|||]1[|||||]', '2023-04-20', 1750000, 'Đang xử lý'),
+(26, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '14[|||]124[|||||]20[|||]2[|||||]31[|||]2[|||||]', '2023-04-21', 71016000, 'Hoàn thành'),
+(27, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '32[|||]1[|||||]', '2023-04-21', 4000000, 'Đã hủy'),
+(28, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '32[|||]3[|||||]', '2023-04-21', 12000000, 'Hoàn thành'),
+(29, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '26[|||]1[|||||]', '2023-04-21', 2600000, 'Trả hàng'),
+(30, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '32[|||]1[|||||]', '2023-04-21', 4000000, 'Đã hủy'),
+(31, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '31[|||]1[|||||]', '2023-04-21', 3790000, 'Hoàn thành'),
+(32, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '11[|||]1[|||||]', '2023-04-22', 12000000, 'Chờ xử lý'),
+(33, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '15[|||]1[|||||]', '2023-04-22', 1100000, 'Đã xác nhận'),
+(34, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '31[|||]1[|||||]', '2023-04-22', 3790000, 'Đã xác nhận'),
+(35, 46, 'quan moi', 'quan@gmail.com', 'quan moi', 'Huyện Vĩnh Bảo', 'Thành phố Hải Phòng', '123', 'dia chi moi', '32[|||]1[|||||]', '2023-04-22', 4000000, 'Hoàn thành'),
+(36, 48, 'test', 'quan2@gmail.com', 'test', 'Huyện Thanh Miện', 'Tỉnh Hải Dương', '123', 'test', '30[|||]1[|||||]', '2023-04-22', 5400000, 'Chờ xử lý');
 
 -- --------------------------------------------------------
 
@@ -173,7 +178,7 @@ INSERT INTO `nguoi_dung` (`nguoi_dung_id`, `tai_khoan`, `mat_khau`, `email`, `tr
 (47, 'quan1', 'quan1', 'quan1@gmail.com', 'co', 'quan1', '547765475', 'áddsaas', 'Tỉnh Hải Dương', 'Huyện Thanh Miện'),
 (48, 'quan2', 'quan2', 'quan2@gmail.com', '', 'quan2', '789989898', '123', 'Tỉnh Lào Cai', 'Huyện Bảo Thắng'),
 (56, 'test', 'test', 'test@gmail.com', '', 'ok chua', '123', 'test', 'Tỉnh Bắc Ninh', 'Huyện Quế Võ'),
-(61, '123adssad', '123', '1231231@gmail.com', 'co', '123', '123', 'ghjghjhg', 'Tỉnh Bắc Ninh', 'Huyện Lương Tài');
+(61, '123adssad', '123', '1231231@gmail.com', '', '123', '123', 'ghjghjhg', 'Tỉnh Bắc Ninh', 'Huyện Lương Tài');
 
 -- --------------------------------------------------------
 
@@ -248,8 +253,8 @@ INSERT INTO `san_pham` (`id`, `ten`, `gia`, `hinh_anh`, `noi_dung`, `thuoc_menu`
 (28, 'Ghế sopha kem', 2600000, '7_4.png', '<p>Với sự kết hợp h&agrave;i ho&agrave; về m&agrave;u sắc, mẫu m&atilde; v&agrave; kh&ocirc;ng gian kiến tr&uacute;c của ng&ocirc;i nh&agrave;.</p>\r\n<p>Những t&ocirc;ng m&agrave;u hiện đại, thiết kế trẻ trung theo từng phong c&aacute;ch.</p>\r\n<p>C&ocirc;ng ty sản xuất sofa đơn đẹp rẻ tại 356 Bạch Mai sẽ mang đến cho bạn những bộ ghế sofa gi&aacute; rẻ hợp với kh&ocirc;ng gian sống.</p>\r\n<p>Với nhiều mẫu m&atilde; thiết kế đa dạng theo phong c&aacute;ch kh&aacute;c nhau. Những sản phẩm sofa gi&aacute; rẻ tại đ&acirc;y tự h&agrave;o mang đến cho bạn kh&ocirc;ng gian sống ho&agrave;n hảo nhất.</p>\r\n<p>Khung gỗ : tự nhi&ecirc;n cao cấp</p>', 16, '', 'co', 28),
 (29, 'Tủ áo B1238', 5100000, '8_1.png', '<p>Thiết kế tinh tế v&agrave; hiện đại ph&ugrave; hợp với phong c&aacute;ch Việt Nam.</p>\r\n<p>Tủ chia th&agrave;nh 2 ngăn đứng với 3 c&aacute;nh cửa mở đ&oacute;ng tiện dụng:</p>\r\n<p>Ngăn đứng lớn để treo &aacute;o, ph&iacute;a dưới trong ngăn treo &aacute;o c&oacute; trang bị 2 ngăn k&eacute;o nhỏ v&agrave; 3 ngăn mở c&oacute; thể chứa c&aacute;c vật dụng cần thiết.</p>\r\n<p>Ngăn đứng nhỏ hơn để treo quần, ph&iacute;a dưới trong ngăn treo quần c&oacute; trang bị 1 ngăn mở để chứa c&aacute;c vật dụng cần thiết.</p>', 17, 'co', 'co', 29),
 (30, 'Tủ áo B1241K', 5400000, '8_2.png', '<p>Thiết kế tinh tế v&agrave; hiện đại ph&ugrave; hợp với phong c&aacute;ch Việt Nam.</p>\r\n<p>Tủ chia th&agrave;nh 2 ngăn đứng với 3 c&aacute;nh cửa mở đ&oacute;ng tiện dụng:</p>\r\n<p>Ngăn đứng lớn để treo &aacute;o, ph&iacute;a dưới trong ngăn treo &aacute;o c&oacute; trang bị 2 ngăn k&eacute;o nhỏ v&agrave; 3 ngăn mở c&oacute; thể chứa c&aacute;c vật dụng cần thiết.</p>\r\n<p>Ngăn đứng nhỏ hơn để treo quần, ph&iacute;a dưới trong ngăn treo quần c&oacute; trang bị 1 ngăn mở để chứa c&aacute;c vật dụng cần thiết.</p>', 17, 'co', 'co', 30),
-(31, 'Tủ Áo Bellasofa B1239', 3790000, '8_3.png', '<p>Thiết kế tinh tế v&agrave; hiện đại ph&ugrave; hợp với phong c&aacute;ch Việt Nam.</p>\r\n<p>Tủ chia th&agrave;nh 2 ngăn đứng với 3 c&aacute;nh cửa mở đ&oacute;ng tiện dụng:</p>\r\n<p>Ngăn đứng lớn để treo &aacute;o, ph&iacute;a dưới trong ngăn treo &aacute;o c&oacute; trang bị 2 ngăn k&eacute;o nhỏ v&agrave; 3 ngăn mở c&oacute; thể chứa c&aacute;c vật dụng cần thiết.</p>\r\n<p>Ngăn đứng nhỏ hơn để treo quần, ph&iacute;a dưới trong ngăn treo quần c&oacute; trang bị 1 ngăn mở để chứa c&aacute;c vật dụng cần thiết.</p>', 17, '', 'co', 31),
-(32, 'Tủ quần áo BIG ONE VIETNAM WVR-1855L', 4000000, '8_4.png', '<p>Thiết kế tinh tế v&agrave; hiện đại ph&ugrave; hợp với phong c&aacute;ch Việt Nam.</p>\r\n<p>Tủ chia th&agrave;nh 2 ngăn đứng với 3 c&aacute;nh cửa mở đ&oacute;ng tiện dụng:</p>\r\n<p>Ngăn đứng lớn để treo &aacute;o, ph&iacute;a dưới trong ngăn treo &aacute;o c&oacute; trang bị 2 ngăn k&eacute;o nhỏ v&agrave; 3 ngăn mở c&oacute; thể chứa c&aacute;c vật dụng cần thiết.</p>\r\n<p>Ngăn đứng nhỏ hơn để treo quần, ph&iacute;a dưới trong ngăn treo quần c&oacute; trang bị 1 ngăn mở để chứa c&aacute;c vật dụng cần thiết.</p>', 17, '', 'co', 32);
+(31, 'Tủ Áo Bellasofa B1239', 3790000, '8_3.png', '<p>Thiết kế tinh tế và hiện đại phù hợp với phong cách Việt Nam.</p>\r\n<p>Tủ chia thành 2 ngăn đứng với 3 cánh cửa mở đóng tiện dụng:</p>\r\n<p>Ngăn đứng lớn để treo áo, phía dưới trong ngăn treo áo có trang bị 2 ngăn kéo nhỏ và 3 ngăn mở có thể chứa các vật dụng cần thiết.</p>\r\n<p>Ngăn đứng nhỏ hơn để treo quần, phía dưới trong ngăn treo quần có trang bị 1 ngăn mở để chứa các vật dụng cần thiết.</p>', 17, '', 'co', 31),
+(32, 'Tủ quần áo BIG ONE VIETNAM WVR-1855L', 4000000, '8_4.png', '<p>Thiết kế tinh tế và hiện đại phù hợp với phong cách Việt Nam.</p>\r\n<p>Tủ chia thành 2 ngăn đứng với 3 cánh cửa mở đóng tiện dụng:</p>\r\n<p>Ngăn đứng lớn để treo áo, phía dưới trong ngăn treo áo có trang bị 2 ngăn kéo nhỏ và 3 ngăn mở có thể chứa các vật dụng cần thiết.</p>\r\n<p>Ngăn đứng nhỏ hơn để treo quần, phía dưới trong ngăn treo quần có trang bị 1 ngăn mở để chứa các vật dụng cần thiết.</p>', 17, '', 'co', 32);
 
 -- --------------------------------------------------------
 
@@ -377,7 +382,7 @@ ALTER TABLE `footer`
 -- AUTO_INCREMENT cho bảng `hoa_don`
 --
 ALTER TABLE `hoa_don`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT cho bảng `menu_doc`
