@@ -142,6 +142,11 @@
 		include("chuc_nang/nguoi_dung/khoa_nguoi_dung.php");
 		trang_truoc_html();
 	}
+	if(isset($_POST['tinh_trang_don_hang']))
+	{
+		include("chuc_nang/hoa_don/tinh_trang_don_hang.php");
+		trang_truoc_html();
+	}
 	if(isset($_GET['thamso']))
 	{
 		if($_GET['thamso']=="thoat")

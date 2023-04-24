@@ -1,7 +1,9 @@
 <?php if(!isset($bien_bao_mat)){exit();} ?>
 
 <?php 
-	$so_dong_tren_mot_trang=10;
+    if (isset($_GET['success']) && $_GET['success'] == 1)
+        echo '<script>alert("Sửa thành công!");</script>';
+	$so_dong_tren_mot_trang=20;
 	if(!isset($_GET['trang'])){$_GET['trang']=1;}
 	$tv="select count(*) from nguoi_dung";
 	$conn = new mysqli("localhost", "root", "", "ban_hang");

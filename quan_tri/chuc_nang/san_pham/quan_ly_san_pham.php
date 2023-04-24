@@ -15,14 +15,9 @@
 	
 <?php 
 	$so_dong_tren_mot_trang=10;
-	if(!isset($_GET['trang'])){$_GET['trang']=1;}
-	
-	if($id_menu=="toan_bo_san_pham") {
-		$tv="select count(*) from san_pham";
-	}
-	else {
-		$tv="select count(*) from san_pham where thuoc_menu='$id_menu' ";
-	}
+	if(!isset($_GET['trang'])) $_GET['trang']=1;
+	if($id_menu=="toan_bo_san_pham") $tv="select count(*) from san_pham";
+	else $tv="select count(*) from san_pham where thuoc_menu='$id_menu' ";
 	$tv_1 = mysqli_query($conn, $tv);
 	$tv_2 = mysqli_fetch_array($tv_1);
 	$so_trang=ceil($tv_2[0]/$so_dong_tren_mot_trang);

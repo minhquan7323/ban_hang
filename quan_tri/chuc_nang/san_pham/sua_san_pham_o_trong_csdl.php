@@ -43,7 +43,6 @@
 				$duong_dan_anh_cu="../hinh_anh/san_pham/".$_POST['ten_anh'];
 				unlink($duong_dan_anh_cu);
 			}
-				
 		}
 		else {
 			thong_bao_html("Hình ảnh bị trùng tên");
@@ -51,5 +50,8 @@
 	}
 	else {
 		thong_bao_html("Tên sản phẩm chưa được điền vào");
+	}
+	if (mysqli_query($conn, $tv_k)) {
+		echo '<script>alert("Sửa thành công!");</script>';
 	}
 ?>

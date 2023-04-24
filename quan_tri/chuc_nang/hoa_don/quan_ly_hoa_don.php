@@ -2,7 +2,7 @@
 	if(!isset($bien_bao_mat)){exit();}
 ?>
 <?php 
-	$so_dong_tren_mot_trang=10;
+	$so_dong_tren_mot_trang=20;
 	if(!isset($_GET['trang'])){$_GET['trang']=1;}
 	
 	$tv="select count(*) from hoa_don";
@@ -72,49 +72,70 @@
             </form>
         </div>
         <div class="table-responsive-lg">
-            <table class="table table-bordered">
-                <thead>
-                    <tr class="table-secondary">
-						<th scope="col">ID đơn hàng</th>
-                        <th scope="col">Tên Khách hàng</th>
-                        <th scope="col">Địa chỉ</th>
-                        <th scope="col">Điện thoại</th>
-                        <th scope="col">Tổng tiền</th>
-                        <th scope="col">Trạng thái</th>
-                        <th scope="col">Ngày mua</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                    $query = "SELECT hoa_don.*, nguoi_dung.* FROM hoa_don INNER JOIN nguoi_dung ON nguoi_dung.nguoi_dung_id = hoa_don.nguoi_dung_id";
-                    if (isset($_GET['tu_ngay'], $_GET['den_ngay'])) {
-                        $tu_ngay = $_GET['tu_ngay'];
-                        $den_ngay = $_GET['den_ngay'];
-                        $query .= " WHERE hoa_don.ngay_mua BETWEEN '$tu_ngay' AND '$den_ngay'";
-                    } else if (isset($_GET['tinh_thanh'], $_GET['quan_huyen'])) {
-                        $tinh_thanh = $_GET['tinh_thanh'];
-                        $quan_huyen = $_GET['quan_huyen'];
-                        $query .= " WHERE hoa_don.tinh_thanh = '$tinh_thanh' AND hoa_don.quan_huyen = '$quan_huyen'";
-                    }
-                    $result = mysqli_query($conn, $query);
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                ?>
-                            <tr>
-                                <td><?= $row['id']; ?></td>
-                                <td><?= $row['ten_nguoi_mua']; ?></td>
-                                <td><?= $row['dia_chi'] . ', ' . $row['quan_huyen'] . ', ' . $row['tinh_thanh']; ?></td>
-                                <td><?= $row['so_dien_thoai']; ?></td>
-                                <td><?= number_format($row['tong_tien'], 0, ",", ".")."đ"; ?></td>
-                                <td><?= $row['tinh_trang']; ?></td>
-                                <td><?= $row['ngay_mua']; ?></td>
-                            </tr>
-                <?php
+            <form action="" method="post">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="table-secondary">
+                            <th scope="col">ID đơn hàng</th>
+                            <th scope="col">Tên Khách hàng</th>
+                            <th scope="col">Địa chỉ</th>
+                            <th scope="col">Điện thoại</th>
+                            <th scope="col">Tổng tiền</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col">Ngày mua</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        $query = "SELECT hoa_don.*, nguoi_dung.* FROM hoa_don INNER JOIN nguoi_dung ON nguoi_dung.nguoi_dung_id = hoa_don.nguoi_dung_id";
+                        if (isset($_GET['tu_ngay'], $_GET['den_ngay'])) {
+                            $tu_ngay = $_GET['tu_ngay'];
+                            $den_ngay = $_GET['den_ngay'];
+                            $query .= " WHERE hoa_don.ngay_mua BETWEEN '$tu_ngay' AND '$den_ngay'";
+                        } else if (isset($_GET['tinh_thanh'], $_GET['quan_huyen'])) {
+                            $tinh_thanh = $_GET['tinh_thanh'];
+                            $quan_huyen = $_GET['quan_huyen'];
+                            $row['tinh_trang'];
+                            $query .= " WHERE hoa_don.tinh_thanh = '$tinh_thanh' AND hoa_don.quan_huyen = '$quan_huyen'";
                         }
-                    }
-                ?>
-                </tbody>
-            </table>
+                        $result = mysqli_query($conn, $query);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                                <tr>
+                                    <td><?= $row['id']; ?></td>
+                                    <td><?= $row['ten_nguoi_mua']; ?></td>
+                                    <td><?= $row['dia_chi'] . ', ' . $row['quan_huyen'] . ', ' . $row['tinh_thanh']; ?></td>
+                                    <td><?= $row['so_dien_thoai']; ?></td>
+                                    <td><?= number_format($row['tong_tien'], 0, ",", ".")."đ"; ?></td>
+                                    <td>
+                                        <select name="tinh_trang_<?php echo $row['id']; ?>">
+                                            <?php
+                                            $tinh_trang_list = array(
+                                                "Chờ xử lý",
+                                                "Đã xác nhận",
+                                                "Đang xử lý",
+                                                "Đã gửi hàng",
+                                                "Hoàn thành",
+                                                "Đã hủy",
+                                                "Trả hàng"
+                                            );
+                                            foreach ($tinh_trang_list as $tinh_trang) {
+                                                echo '<option value="' . $tinh_trang . '" ' . (($row['tinh_trang'] == $tinh_trang) ? 'selected' : '') . '>' . $tinh_trang . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </td>
+                                    <td><?= $row['ngay_mua']; ?></td>
+                                </tr>
+                    <?php
+                            }
+                        }
+                    ?>
+                    </tbody>
+                <button type="submit" name="tinh_trang_don_hang" class="btn btn-outline-success"style="width:100px;">Cập nhật</button>
+                </table>
+            </form>
         </div>
         <div class="category_paging">
 			<?php 

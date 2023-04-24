@@ -9,5 +9,8 @@
                 mysqli_query($conn, $tv_trang_thai);
             }
         }
+        if (mysqli_query($conn, $tv_trang_thai)) {
+            echo '<script>alert("Cập nhật thành công!");</script>';
+        }
     }
 ?>

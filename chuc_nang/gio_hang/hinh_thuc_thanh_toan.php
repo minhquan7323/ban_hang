@@ -30,10 +30,42 @@
                         <div class="col-12">
                             <div class="col-12 dia_chi_nhan_hang">
                                 <h4><i class="fa-solid fa-location-dot"></i> Địa chỉ nhận hàng</h4>
-                                <?php 
-                                    echo "<b>".$ho_ten." - ".$so_dien_thoai."</b> ".$dia_chi.", ".$quan_huyen.", ".$tinh_thanh;
-                                ?>  
-                                <a href="">Thay đổi</a>
+                                <span id="dia_chi_nhan_hang_moi">
+                                    <div class="dia_chi_nhan_hang_moi" style="display:none;">
+                                        <div class="row">
+                                            <h4>Nhập địa chỉ mới</h4>
+                                            <div class="col-6 form-floating mb-3">
+                                                <input type="text" class="form-control" name="ho_ten_moi" placeholder="Tên người nhận">
+                                                <label for="floatingInput">Tên người nhận</label>
+                                            </div>
+                                            <div class="col-6 form-floating mb-3">
+                                                <input type="text" class="form-control" name="so_dien_thoai_moi" placeholder="Số điện thoại">
+                                                <label for="floatingInput">Số điện thoại</label>
+                                            </div>
+                                            <div class="col-4 form-floating mb-3">
+                                                <input type="text" class="form-control" name="dia_chi_moi" placeholder="Địa chỉ">
+                                                <label for="floatingInput">Địa chỉ</label>
+                                            </div>
+                                            <div class="col-4 form-floating mb-3">
+                                                <select name="tinh_thanh_moi" class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
+                                                    <option value="" selected>Chọn tỉnh thành</option>           
+                                                </select>
+                                                <label for="floatingInput">Tỉnh thành</label>
+                                            </div>
+                                            <div class="col-4 form-floating mb-3">
+                                                <select name="quan_huyen_moi" class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm">
+                                                    <option value="" selected>Chọn quận huyện</option>
+                                                </select>
+                                                <label for="floatingInput">Quận huyện</label>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-secondary" id="btn_cancel" onclick="huy_thay_doi_dia_chi_nhan_hang()">Hủy thay đổi</button>
+                                    </div>
+                                    <span class="dia_chi_nhan_hang_cu">
+                                        <?php echo "<b>".$ho_ten." - ".$so_dien_thoai."</b> ".$dia_chi.", ".$quan_huyen.", ".$tinh_thanh;?>      
+                                        <button type="button" class="btn btn-secondary" id="btn_change" onclick="dia_chi_nhan_hang_moi()">Thay đổi</button>
+                                    </span>
+                                </span>
                             </div>
                             <div class="col-12 san_pham_mua">
                                 <table>
@@ -91,7 +123,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <input type="hidden" name="thanh_toan" id="thanh_toan" value="đang vận chuyển">
+                                <input type="hidden" name="thanh_toan" id="thanh_toan" value="Chờ xử lý">
                                 <div id="thanh_toan_online">
 
                                 </div>
@@ -102,37 +134,80 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" value="Đặt hàng">
+                    <button type="button submit" class="btn btn-success">Đặt hàng</button>
                 </form>
             </div>
         </div>
 	</body>
     <script>
-    function thanh_toan_online() {
-        var radio = document.getElementsByName("inlineRadioOptions");
-        var thanh_toan_online = document.getElementById("thanh_toan_online");
-        if (radio[0].checked) {
-            thanh_toan_online.style.display = "none";
-        } else {
-            var a = `
-                    <div class="row">
-                        <div class="col-6 form-floating mb-3">
-                            <input type="text" class="form-control" value="VCB" placeholder="Ngân hàng" required readonly>
-                            <label for="floatingInput">Tên thẻ</label>
-                        </div><div class="col-6 form-floating mb-3">
-                            <input type="text" class="form-control" value="0123456789" placeholder="Số thẻ" required readonly>
-                            <label for="floatingInput">Số thẻ</label>
+        function thanh_toan_online() {
+            var radio = document.getElementsByName("inlineRadioOptions");
+            var thanh_toan_online = document.getElementById("thanh_toan_online");
+            if (radio[0].checked) {
+                thanh_toan_online.style.display = "none";
+            } else {
+                var a = `
+                        <div class="row">
+                            <div class="col-6 form-floating mb-3">
+                                <input type="text" class="form-control" value="VCB" placeholder="Ngân hàng" required readonly>
+                                <label for="floatingInput">Tên thẻ</label>
+                            </div>
+                            <div class="col-6 form-floating mb-3">
+                                <input type="text" class="form-control" value="0123456789" placeholder="Số thẻ" required readonly>
+                                <label for="floatingInput">Số thẻ</label>
+                            </div>
+                            <div class="col-12 form-floating mb-3">
+                                <input type="text" class="form-control" value="nội thất deKor" placeholder="Tên người nhận" required readonly>
+                                <label for="floatingInput">Tên người nhận</label>
+                            </div>
                         </div>
-                        <div class="col-12 form-floating mb-3">
-                            <input type="text" class="form-control" value="nội thất deKor" placeholder="Tên người nhận" required readonly>
-                            <label for="floatingInput">Tên người nhận</label>
-                        </div>
-                    </div>
-            `;
-            thanh_toan_online.innerHTML = a;
-            thanh_toan_online.style.display = "block";
-            document.getElementById("thanh_toan").value = "đã thanh toán";
+                `;
+                thanh_toan_online.innerHTML = a;
+                thanh_toan_online.style.display = "block";
+                // document.getElementById("thanh_toan").value = "đã thanh toán";
+            }
         }
-    }
-</script>
+        function dia_chi_nhan_hang_moi() {
+            var diaChiNhanHangMoi = document.getElementsByClassName("dia_chi_nhan_hang_moi")[0];
+            var diaChiNhanHangCu = document.getElementsByClassName("dia_chi_nhan_hang_cu")[0];
+            diaChiNhanHangMoi.style.display = "block";
+            diaChiNhanHangCu.style.display = "none";
+            var inputs = diaChiNhanHangMoi.getElementsByTagName('input');
+            for (var i = 0; i < inputs.length; i++)
+                inputs[i].setAttribute('required', true);
+        }
+        function huy_thay_doi_dia_chi_nhan_hang() {
+            var diaChiNhanHangMoi = document.getElementsByClassName("dia_chi_nhan_hang_moi")[0];
+            var diaChiNhanHangCu = document.getElementsByClassName("dia_chi_nhan_hang_cu")[0];
+            diaChiNhanHangMoi.style.display = "none";
+            diaChiNhanHangCu.style.display = "block";
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script>
+        var citis = document.getElementById("city");
+        var districts = document.getElementById("district");
+        var Parameter = {
+            url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json", 
+            method: "GET", 
+            responseType: "application/json", 
+        };
+        var promise = axios(Parameter);
+        promise.then(function (result) {
+            renderCity(result.data);
+        });
+
+        function renderCity(data) {
+            for (const x of data)
+                citis.options[citis.options.length] = new Option(x.Name, x.Name);
+            citis.onchange = function () {
+                district.length = 1;
+                if(this.value != "") {
+                    const result = data.filter(n => n.Name === this.value);
+                    for (const k of result[0].Districts)
+                        districts.options[districts.options.length] = new Option(k.Name, k.Name);
+                }
+            };
+        }
+    </script>
 </html>

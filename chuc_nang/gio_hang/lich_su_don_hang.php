@@ -7,9 +7,13 @@
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $link_xem="?thamso=xem_hoa_don&id=".$row['id'];
-?>
+            ?>
             <div>
                 <table class="lsdh">
+                    <tr>
+                        <th colspan="3" style="text-align:end;">Tình trạng đơn hàng:</th>
+                        <td colspan="2"><?php echo $row['tinh_trang']; ?></td>
+                    </tr>
                     <tr>
                         <th width="300px">Tên sản phẩm</th>
                         <th width="100px">Giá</th>

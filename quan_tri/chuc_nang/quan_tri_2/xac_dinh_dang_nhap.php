@@ -55,7 +55,7 @@
 			$_SESSION['mat_khau']=$mat_khau;
 		}
 		else {
-			echo"Thông tin đăng nhập không đúng.";
+  			echo"<h4 style='color: #03e9f4; text-align:center; padding-top:100px;'>Thông tin đăng nhập không đúng.</h4>";
 		}
 	}
 	

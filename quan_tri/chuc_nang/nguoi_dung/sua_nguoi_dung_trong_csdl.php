@@ -31,4 +31,9 @@
     WHERE nguoi_dung_id ='$nguoi_dung_id';
     ";
     mysqli_query($conn, $tv_k);
+    if (mysqli_query($conn, $tv_k)) {
+        header('Location: ./index.php?thamso=nguoi_dung&success=1');
+        exit();
+    }
+    
 ?>

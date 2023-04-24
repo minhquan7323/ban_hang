@@ -133,32 +133,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form> 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-<script>
-	var citis = document.getElementById("city");
-    var districts = document.getElementById("district");
-    var Parameter = {
-        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json", 
-        method: "GET", 
-        responseType: "application/json", 
-    };
-    var promise = axios(Parameter);
-    promise.then(function (result) {
-        renderCity(result.data);
-    });
+    <script>
+        var citis = document.getElementById("city");
+        var districts = document.getElementById("district");
+        var Parameter = {
+            url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json", 
+            method: "GET", 
+            responseType: "application/json", 
+        };
+        var promise = axios(Parameter);
+        promise.then(function (result) {
+            renderCity(result.data);
+        });
 
-function renderCity(data) {
-    for (const x of data)
-        citis.options[citis.options.length] = new Option(x.Name, x.Name);
-    citis.onchange = function () {
-        district.length = 1;
-        if(this.value != "") {
-            const result = data.filter(n => n.Name === this.value);
-            for (const k of result[0].Districts)
-                districts.options[districts.options.length] = new Option(k.Name, k.Name);
-        }
-    };
-}
-</script>
+    function renderCity(data) {
+        for (const x of data)
+            citis.options[citis.options.length] = new Option(x.Name, x.Name);
+        citis.onchange = function () {
+            district.length = 1;
+            if(this.value != "") {
+                const result = data.filter(n => n.Name === this.value);
+                for (const k of result[0].Districts)
+                    districts.options[districts.options.length] = new Option(k.Name, k.Name);
+            }
+        };
+    }
+    </script>
 
 </body>
 

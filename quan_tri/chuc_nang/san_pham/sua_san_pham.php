@@ -40,7 +40,7 @@
 								</div>
 								<div class="form-floating mb-3">
 									<div class="hinh_anh">
-										<input type="file" name="hinh_anh" class="btn btn-outline-secondary">
+										Hình ảnh<input type="file" name="hinh_anh" class="btn btn-outline-secondary">
 										<input type="hidden" name="ten_anh" value="<?php echo $ten_anh; ?>" >
 									</div>
 								</div>
@@ -123,7 +123,7 @@
 							</div>
 						</div>
 					</div>
-					<button type="submit" name="bieu_mau_sua_san_pham" class="btn btn-outline-success">Sửa sản phẩm</button>
+					<button type="submit" name="bieu_mau_sua_san_pham" class="btn btn-outline-success" onclick="return confirm('Bạn có chắc chắn muốn sửa sản phẩm này?')">Sửa sản phẩm</button>
 				</form>
 			</table>
 		</div>

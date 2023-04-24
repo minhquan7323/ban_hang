@@ -171,6 +171,7 @@ div.phan_trang a:hover {
     margin: 0 10px;
     padding: 10px;
     text-align: start;
+    border-radius: 5px;
     border: 2px solid rgb(110, 199, 247);
 }
 .mo_ta p {
@@ -289,6 +290,7 @@ div.phan_trang a:hover {
 }
 .dia_chi_nhan_hang {
     border: 2px solid rgb(110, 199, 247);
+    border-radius: 5px;
     text-align: left;
     padding: 20px;
 }
@@ -297,6 +299,7 @@ div.phan_trang a:hover {
 }
 .san_pham_mua {
     border: 2px solid rgb(110, 199, 247);
+    border-radius: 5px;
     padding: 20px;
     margin: 20px 0;
 }
@@ -311,12 +314,14 @@ div.phan_trang a:hover {
 }
 .phuong_thuc_thanh_toan {
     border: 2px solid rgb(110, 199, 247);
+    border-radius: 5px;
     padding: 15px 0 10px 10px;
     margin: 20px 0;
     align-items: start;
 }
 .ghi_chu {
     border: 2px solid rgb(110, 199, 247);
+    border-radius: 5px;
     margin: 20px 0;
     /* padding: 15px 0 10px 10px; */
 }
@@ -325,6 +330,7 @@ div.phan_trang a:hover {
 }
 .lsdh {
     border: 2px solid rgb(110, 199, 247);
+    border-radius: 5px;
     margin: 20px 0;
     padding: 10px 0;
 
@@ -334,6 +340,7 @@ div.phan_trang a:hover {
 }
 .chi_tiet_don_hang div {
     border: 2px solid rgb(110, 199, 247);
+    border-radius: 5px;
     margin: 20px;
     padding: 10px;
 }
@@ -342,4 +349,8 @@ div.phan_trang a:hover {
 }
 .gio_hang_tb {
     border: 2px solid rgb(110, 199, 247);
+    border-radius: 5px;
+}
+.dia_chi_nhan_hang_moi {
+    padding-top: 30px;
 }

@@ -9,7 +9,6 @@
 				$phan_loai_arr = $_GET['phan_loai'];
 				$loc_gia_arr = $_GET['loc_gia'];
 				$loc_query = '';
-				//SELECT * FROM san_pham WHERE (thuoc_menu = '10' AND gia BETWEEN '0' AND '5000000');
 				foreach($loc_gia_arr as $value2) {
 					foreach($phan_loai_arr as $value) {
 						if($loc_query == '') $loc_query = ' WHERE ';
