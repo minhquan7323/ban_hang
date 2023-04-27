@@ -22,48 +22,52 @@
 	</head>	
     <body>
         <h3 class="title">Thông tin người dùng</h3>
-        <br>
-		<div style="text-align: end;"><a href='?thamso=lich_su_don_hang'><button type="button" class="btn btn-success">Lịch sử đơn hàng</button></a></div>
-        <br>
-        <div class="content">
-            <div class="row main_frame box_card box_shadow">
-                <div class="table-responsive-lg">
-                    <table class="table table-bordered">
-                        <div class="row g-3 w">
-                            <div class="col-12 form-floating">
-                                <input type="text" value="<?php echo $ho_ten; ?>" name="ho_ten" class="form-control" placeholder="Họ và tên" required readonly>
-                                <label for="floatingInput">Họ và tên</label>
+        <div class="row">
+            <div id="btn_thong_tin_nguoi_dung" class="col-3">
+                <span><a href='?thamso=sua_thong_tin'><button type="button" class="btn btn-secondary">Sửa thông tin</button></a></span>
+                <br><br>
+                <span><a href='?thamso=lich_su_don_hang'><button type="button" class="btn btn-success">Lịch sử đơn hàng</button></a></span>
+            </div>
+            <div class="content col-9">
+                <div class="row main_frame box_card box_shadow">
+                    <div class="table-responsive-lg">
+                        <table class="table table-bordered">
+                            <div class="row g-3 w">
+                                <div class="col-12 form-floating">
+                                    <input type="text" value="<?php echo $ho_ten; ?>" name="ho_ten" class="form-control" placeholder="Họ và tên" required readonly>
+                                    <label for="floatingInput">Họ và tên</label>
+                                </div>
+                                <div class="col-6 form-floating">
+                                    <input type="text" value="<?php echo $tai_khoan; ?>" name="tai_khoan" class="form-control" placeholder="Tên đăng nhập" required readonly>
+                                    <label for="floatingInput">Tài khoản</label>
+                                </div>
+                                <div class="col-6 form-floating">
+                                    <input type="text" value="<?php echo $mat_khau; ?>" name="mat_khau" class="form-control" placeholder="Mật khẩu" required readonly>
+                                    <label for="floatingInput">Mật khẩu</label>
+                                </div>
+                                <div class="col-6 form-floating">
+                                    <input type="email" value="<?php echo $email; ?>" name="email" class="form-control" placeholder="Email" required readonly>
+                                    <label for="floatingInput">Email</label>
+                                </div>
+                                <div class="col-6 form-floating">
+                                    <input type="text" value="<?php echo $so_dien_thoai; ?>" name="so_dien_thoai" class="form-control" placeholder="Số điện thoại" required readonly>
+                                    <label for="floatingInput">Số điện thoại</label>
+                                </div>
+                                <div class="col-12 form-floating">
+                                    <input type="text" value="<?php echo $dia_chi; ?>" name="dia_chi" class="form-control" placeholder="Địa chỉ" required readonly>
+                                    <label for="floatingInput">Địa chỉ</label>
+                                </div>
+                                <div class="col-6 form-floating">
+                                    <input type="text" value="<?php echo $tinh_thanh; ?>" name="tinh_thanh" class="form-control" placeholder="Địa chỉ" required readonly>
+                                    <label for="floatingInput">Tỉnh thành</label>
+                                </div>
+                                <div class="col-6 form-floating">
+                                    <input type="text" value="<?php echo $quan_huyen; ?>" name="quan_huyen" class="form-control" placeholder="Địa chỉ" required readonly>
+                                    <label for="floatingInput">Quận huyện</label>
+                                </div>
                             </div>
-                            <div class="col-6 form-floating">
-                                <input type="text" value="<?php echo $tai_khoan; ?>" name="tai_khoan" class="form-control" placeholder="Tên đăng nhập" required readonly>
-                                <label for="floatingInput">Tài khoản</label>
-                            </div>
-                            <div class="col-6 form-floating">
-                                <input type="text" value="<?php echo $mat_khau; ?>" name="mat_khau" class="form-control" placeholder="Mật khẩu" required readonly>
-                                <label for="floatingInput">Mật khẩu</label>
-                            </div>
-                            <div class="col-6 form-floating">
-                                <input type="email" value="<?php echo $email; ?>" name="email" class="form-control" placeholder="Email" required readonly>
-                                <label for="floatingInput">Email</label>
-                            </div>
-                            <div class="col-6 form-floating">
-                                <input type="text" value="<?php echo $so_dien_thoai; ?>" name="so_dien_thoai" class="form-control" placeholder="Số điện thoại" required readonly>
-                                <label for="floatingInput">Số điện thoại</label>
-                            </div>
-                            <div class="col-12 form-floating">
-                                <input type="text" value="<?php echo $dia_chi; ?>" name="dia_chi" class="form-control" placeholder="Địa chỉ" required readonly>
-                                <label for="floatingInput">Địa chỉ</label>
-                            </div>
-                            <div class="col-6 form-floating">
-                                <input type="text" value="<?php echo $tinh_thanh; ?>" name="tinh_thanh" class="form-control" placeholder="Địa chỉ" required readonly>
-                                <label for="floatingInput">Tỉnh thành</label>
-                            </div>
-                            <div class="col-6 form-floating">
-                                <input type="text" value="<?php echo $quan_huyen; ?>" name="quan_huyen" class="form-control" placeholder="Địa chỉ" required readonly>
-                                <label for="floatingInput">Quận huyện</label>
-                            </div>
-                        </div>
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

@@ -146,18 +146,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             renderCity(result.data);
         });
 
-    function renderCity(data) {
-        for (const x of data)
-            citis.options[citis.options.length] = new Option(x.Name, x.Name);
-        citis.onchange = function () {
-            district.length = 1;
-            if(this.value != "") {
-                const result = data.filter(n => n.Name === this.value);
-                for (const k of result[0].Districts)
-                    districts.options[districts.options.length] = new Option(k.Name, k.Name);
-            }
-        };
-    }
+        function renderCity(data) {
+            for (const x of data)
+                citis.options[citis.options.length] = new Option(x.Name, x.Name);
+            citis.onchange = function () {
+                district.length = 1;
+                if(this.value != "") {
+                    const result = data.filter(n => n.Name === this.value);
+                    for (const k of result[0].Districts)
+                        districts.options[districts.options.length] = new Option(k.Name, k.Name);
+                }
+            };
+        }
     </script>
 
 </body>

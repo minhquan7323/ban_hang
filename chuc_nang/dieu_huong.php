@@ -42,8 +42,14 @@
 		case "xem_hoa_don":
 			include("chuc_nang/gio_hang/chi_tiet_don_hang.php");
 		break;
+		case "sua_thong_tin":
+			include("chuc_nang/nguoi_dung/sua_thong_tin.php");
+		break;
 		default:
 			include("chuc_nang/slideshow/slideshow.php");	
 			include("chuc_nang/san_pham/san_pham_trang_chu.php");	
+	}
+	if(isset($_POST['bieu_mau_sua_thong_tin'])) {
+		include("chuc_nang/nguoi_dung/sua_thong_tin_trong_csdl.php");
 	}
 ?>

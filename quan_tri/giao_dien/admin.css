@@ -466,7 +466,9 @@ body {
 }
 
 
-
+.col-sm-6 .box_card {
+    text-align: left;
+}
 
 
 
