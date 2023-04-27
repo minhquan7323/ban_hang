@@ -58,13 +58,15 @@
                                         <input type="text" value="<?php echo $dia_chi; ?>" name="dia_chi" class="form-control" placeholder="Địa chỉ" required>
                                         <label for="floatingInput">Địa chỉ</label>
                                     </div>
-                                    <div class="col-6 form-floating">
-                                        <input type="text" value="<?php echo $tinh_thanh; ?>" name="tinh_thanh" class="form-control" placeholder="Địa chỉ" required>
-                                        <label for="floatingInput">Tỉnh thành</label>
+                                    <div class="col-6">
+                                    <select name="tinh_thanh" class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm" required>
+                                        <option value="" selected>Chọn tỉnh thành</option>           
+                                    </select>
                                     </div>
-                                    <div class="col-6 form-floating">
-                                        <input type="text" value="<?php echo $quan_huyen; ?>" name="quan_huyen" class="form-control" placeholder="Địa chỉ" required>
-                                        <label for="floatingInput">Quận huyện</label>
+                                    <div class="col-6">
+                                    <select name="quan_huyen" class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm" required>
+                                        <option value="" selected>Chọn quận huyện</option>
+                                    </select>
                                     </div>
                                     <button type="submit" name="bieu_mau_sua_thong_tin" class="btn btn-success" onclick="if (confirmAlert()) window.location.href='../'">Lưu thay đổi</button>
                                 </form>
@@ -77,11 +79,11 @@
     </body>
     <script>
     function confirmAlert() {
-        if (confirm("Bạn có lưu thay đổi không?")) return true
+        if (confirm("Bạn có muốn lưu thay đổi không?")) return true
         else return false
     }
     </script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script>
         var citis = document.getElementById("city");
         var districts = document.getElementById("district");
@@ -107,5 +109,5 @@
                 }
             };
         }
-    </script> -->
+    </script>
 </html>

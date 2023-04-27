@@ -16,8 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $check_email_query = "SELECT email FROM nguoi_dung WHERE email='{$email}'";
     $check_email_result = mysqli_query($conn, $check_email_query);
-
-    if (mysqli_num_rows($check_tai_khoan_result) > 0) {
+    $phone_number_regex = '/^(03|05|07|08|09|01[2|6|8|9])[0-9]{8}$/';
+    if (!preg_match($phone_number_regex, $so_dien_thoai)) {
+        echo "Số điện thoại này không hợp lệ. Vui lòng nhập số điện thoại khác.";
+    }
+    else if (mysqli_num_rows($check_tai_khoan_result) > 0) {
         echo "Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác.";
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -26,10 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     else if (mysqli_num_rows($check_email_result) > 0) {
         echo "Email này đã có người dùng. Vui lòng chọn Email khác.";
     }
-    else if (!filter_var($so_dien_thoai, FILTER_VALIDATE_INT)) {
-        echo "Số điện thoại này không hợp lệ. Vui long nhập số điện thoại khác.";
-    }
-     else {
+    else {
         $query = "INSERT INTO nguoi_dung (tai_khoan, mat_khau, email, ho_ten, dia_chi, tinh_thanh, quan_huyen) VALUES ('$tai_khoan', '$mat_khau', '$email', '$ho_ten', '$dia_chi', '$tinh_thanh', '$quan_huyen')";
         mysqli_query($conn, $query);
         header('Location: ../../');
