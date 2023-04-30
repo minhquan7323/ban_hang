@@ -181,6 +181,9 @@
             var diaChiNhanHangCu = document.getElementsByClassName("dia_chi_nhan_hang_cu")[0];
             diaChiNhanHangMoi.style.display = "none";
             diaChiNhanHangCu.style.display = "block";
+            var inputs = diaChiNhanHangMoi.getElementsByTagName('input');
+            for (var i = 0; i < inputs.length; i++)
+                inputs[i].setAttribute('required', false);
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>

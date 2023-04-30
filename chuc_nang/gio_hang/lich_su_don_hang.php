@@ -66,5 +66,6 @@
 <?php
         }
     }
+    else echo"Chưa có lịch sử đơn hàng";
 ?>
 </div>
