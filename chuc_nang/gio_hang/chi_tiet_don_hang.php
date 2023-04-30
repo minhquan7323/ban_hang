@@ -21,7 +21,7 @@
 <div class="chi_tiet_don_hang">
 	<div><span><b>Tình trạng đơn hàng:</b></span> <?php echo $tinh_trang; ?></div>
 	<div class="chi_tiet_dia_chi">
-		<span><b>Địa chỉ đặt hàng: </b></span> <?php echo $ten_nguoi_mua." - " .$dien_thoai." - ".$quan_huyen.", ".$tinh_thanh;?> <br>
+		<span><b>Địa chỉ đặt hàng: </b></span> <?php echo $ten_nguoi_mua." - " .$dien_thoai." - ".$dia_chi.", ".$quan_huyen.", ".$tinh_thanh;?> <br>
 		<span><b>Email: </b></span> <?php echo $email; ?><br>
 		<span><b>Ngày đặt hàng: </b></span> <?php echo $ngay_mua; ?><br>
 		<span><b>Ghi chú: </b></span> <?php echo $noi_dung; ?><br>

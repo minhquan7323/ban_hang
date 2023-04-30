@@ -62,7 +62,7 @@
                                         <button type="button" class="btn btn-secondary" id="btn_cancel" onclick="huy_thay_doi_dia_chi_nhan_hang()">Hủy thay đổi</button>
                                     </div>
                                     <span class="dia_chi_nhan_hang_cu">
-                                        <?php echo "<b>".$ho_ten." - ".$so_dien_thoai."</b> ".$dia_chi.", ".$quan_huyen.", ".$tinh_thanh;?>      
+                                        <?php echo "<b>".$ho_ten." - ".$so_dien_thoai."</b> "." - ".$dia_chi.", ".$quan_huyen.", ".$tinh_thanh;?>      
                                         <button type="button" class="btn btn-secondary" id="btn_change" onclick="dia_chi_nhan_hang_moi()">Thay đổi</button>
                                     </span>
                                 </span>
@@ -168,23 +168,28 @@
             }
         }
         function dia_chi_nhan_hang_moi() {
-            var diaChiNhanHangMoi = document.getElementsByClassName("dia_chi_nhan_hang_moi")[0];
-            var diaChiNhanHangCu = document.getElementsByClassName("dia_chi_nhan_hang_cu")[0];
-            diaChiNhanHangMoi.style.display = "block";
-            diaChiNhanHangCu.style.display = "none";
-            var inputs = diaChiNhanHangMoi.getElementsByTagName('input');
-            for (var i = 0; i < inputs.length; i++)
-                inputs[i].setAttribute('required', true);
+        var diaChiNhanHangMoi = document.getElementsByClassName("dia_chi_nhan_hang_moi")[0];
+        var diaChiNhanHangCu = document.getElementsByClassName("dia_chi_nhan_hang_cu")[0];
+        diaChiNhanHangMoi.style.display = "block";
+        diaChiNhanHangCu.style.display = "none";
+        var inputs = diaChiNhanHangMoi.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].setAttribute('required', true);
+            inputs[i].removeAttribute('disabled');
         }
-        function huy_thay_doi_dia_chi_nhan_hang() {
-            var diaChiNhanHangMoi = document.getElementsByClassName("dia_chi_nhan_hang_moi")[0];
-            var diaChiNhanHangCu = document.getElementsByClassName("dia_chi_nhan_hang_cu")[0];
-            diaChiNhanHangMoi.style.display = "none";
-            diaChiNhanHangCu.style.display = "block";
-            var inputs = diaChiNhanHangMoi.getElementsByTagName('input');
-            for (var i = 0; i < inputs.length; i++)
-                inputs[i].setAttribute('required', false);
+    }
+    function huy_thay_doi_dia_chi_nhan_hang() {
+        var diaChiNhanHangMoi = document.getElementsByClassName("dia_chi_nhan_hang_moi")[0];
+        var diaChiNhanHangCu = document.getElementsByClassName("dia_chi_nhan_hang_cu")[0];
+        diaChiNhanHangMoi.style.display = "none";
+        diaChiNhanHangCu.style.display = "block";
+        var inputs = diaChiNhanHangMoi.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].removeAttribute('required');
+            inputs[i].setAttribute('disabled', true);
         }
+    }
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script>
