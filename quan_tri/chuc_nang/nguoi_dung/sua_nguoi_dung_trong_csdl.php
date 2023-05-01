@@ -17,23 +17,27 @@
     $tv_k="select * from nguoi_dung";
     $tv_k_1=mysqli_query($conn, $tv_k);
     $tv_k_2=mysqli_fetch_array($tv_k_1);
-    
-    $tv_k="
-    UPDATE nguoi_dung SET 
-    ho_ten = '$ho_ten',
-    tai_khoan = '$tai_khoan',
-    email = '$email',
-    mat_khau = '$mat_khau',
-    dia_chi = '$dia_chi',
-    so_dien_thoai = '$so_dien_thoai',
-    tinh_thanh = '$tinh_thanh',
-    quan_huyen = '$quan_huyen' 
-    WHERE nguoi_dung_id ='$nguoi_dung_id';
-    ";
-    mysqli_query($conn, $tv_k);
-    if (mysqli_query($conn, $tv_k)) {
-        header('Location: ./index.php?thamso=nguoi_dung&success=1');
-        exit();
+    $phone_number_regex = '/^0\d{9}$/';
+    if (!preg_match($phone_number_regex, $so_dien_thoai)) {
+        echo "<script>alert('Số điện thoại này không hợp lệ. Vui lòng nhập số điện thoại khác.');</script>";
     }
-    
+    else {
+        $tv_k="
+        UPDATE nguoi_dung SET 
+        ho_ten = '$ho_ten',
+        tai_khoan = '$tai_khoan',
+        email = '$email',
+        mat_khau = '$mat_khau',
+        dia_chi = '$dia_chi',
+        so_dien_thoai = '$so_dien_thoai',
+        tinh_thanh = '$tinh_thanh',
+        quan_huyen = '$quan_huyen' 
+        WHERE nguoi_dung_id ='$nguoi_dung_id';
+        ";
+        mysqli_query($conn, $tv_k);
+        if (mysqli_query($conn, $tv_k)) {
+            header('Location: ./index.php?thamso=nguoi_dung&success=1');
+            exit();
+        }
+    }
 ?>

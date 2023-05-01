@@ -7,6 +7,7 @@
 	
 	$tv="select count(*) from hoa_don";
 	$conn = new mysqli("localhost", "root", "", "ban_hang");
+
 	$tv_1 = mysqli_query($conn, $tv);
 	$tv_2 = mysqli_fetch_array($tv_1);
 	$so_trang=ceil($tv_2[0]/$so_dong_tren_mot_trang);
@@ -76,7 +77,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr class="table-secondary">
-                            <th scope="col">ID đơn hàng</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Tên Khách hàng</th>
                             <th scope="col">Địa chỉ</th>
                             <th scope="col">Điện thoại</th>
@@ -87,26 +88,27 @@
                     </thead>
                     <tbody>
                     <?php
-                        $query = "SELECT hoa_don.*, nguoi_dung.* FROM hoa_don INNER JOIN nguoi_dung ON nguoi_dung.nguoi_dung_id = hoa_don.nguoi_dung_id";
+                        $query = "SELECT * FROM hoa_don";
                         if (isset($_GET['tu_ngay'], $_GET['den_ngay'])) {
                             $tu_ngay = $_GET['tu_ngay'];
                             $den_ngay = $_GET['den_ngay'];
-                            $query .= " WHERE hoa_don.ngay_mua BETWEEN '$tu_ngay' AND '$den_ngay'";
+                            $query .= " WHERE ngay_mua BETWEEN '$tu_ngay' AND '$den_ngay'";
                         } else if (isset($_GET['tinh_thanh'], $_GET['quan_huyen'])) {
                             $tinh_thanh = $_GET['tinh_thanh'];
                             $quan_huyen = $_GET['quan_huyen'];
-                            $row['tinh_trang'];
-                            $query .= " WHERE hoa_don.tinh_thanh = '$tinh_thanh' AND hoa_don.quan_huyen = '$quan_huyen'";
+                            $query .= " WHERE tinh_thanh = '$tinh_thanh' AND quan_huyen = '$quan_huyen'";
                         }
-                        $result = mysqli_query($conn, $query);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
+                        $query .= " order by id desc limit $vtbd,$so_dong_tren_mot_trang";
+                        $tv_1 = mysqli_query($conn, $query);
+	                    // $so_trang=ceil($tv_2[0]/$so_dong_tren_mot_trang);
+                        // if (mysqli_num_rows($tv_1) > 0) {
+                            while ($row = mysqli_fetch_array($tv_1)) {
                     ?>
                                 <tr>
                                     <td><?= $row['id']; ?></td>
                                     <td><?= $row['ten_nguoi_mua']; ?></td>
                                     <td><?= $row['dia_chi'] . ', ' . $row['quan_huyen'] . ', ' . $row['tinh_thanh']; ?></td>
-                                    <td><?= $row['so_dien_thoai']; ?></td>
+                                    <td><?= $row['dien_thoai']; ?></td>
                                     <td><?= number_format($row['tong_tien'], 0, ",", ".")."đ"; ?></td>
                                     <td>
                                         <select name="tinh_trang_<?php echo $row['id']; ?>">
@@ -130,7 +132,7 @@
                                 </tr>
                     <?php
                             }
-                        }
+                        // }
                     ?>
                     </tbody>
                 <button type="submit" name="tinh_trang_don_hang" class="btn btn-outline-success"style="width:100px;">Cập nhật</button>

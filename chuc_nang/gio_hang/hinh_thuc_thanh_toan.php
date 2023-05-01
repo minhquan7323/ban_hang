@@ -35,15 +35,15 @@
                                         <div class="row">
                                             <h4>Nhập địa chỉ mới</h4>
                                             <div class="col-6 form-floating mb-3">
-                                                <input type="text" class="form-control" name="ho_ten_moi" placeholder="Tên người nhận">
+                                                <input type="text" class="form-control" name="ho_ten_moi" placeholder="Tên người nhận" disabled>
                                                 <label for="floatingInput">Tên người nhận</label>
                                             </div>
                                             <div class="col-6 form-floating mb-3">
-                                                <input type="text" class="form-control" name="so_dien_thoai_moi" placeholder="Số điện thoại">
+                                                <input type="text" class="form-control" name="so_dien_thoai_moi" placeholder="Số điện thoại" disabled>
                                                 <label for="floatingInput">Số điện thoại</label>
                                             </div>
                                             <div class="col-4 form-floating mb-3">
-                                                <input type="text" class="form-control" name="dia_chi_moi" placeholder="Địa chỉ">
+                                                <input type="text" class="form-control" name="dia_chi_moi" placeholder="Địa chỉ" disabled>
                                                 <label for="floatingInput">Địa chỉ</label>
                                             </div>
                                             <div class="col-4 form-floating mb-3">

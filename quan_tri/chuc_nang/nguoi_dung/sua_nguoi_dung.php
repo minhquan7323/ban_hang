@@ -84,12 +84,12 @@
                     </div>
                     <div class="col-6">
                         <select name="tinh_thanh" class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm" required>
-                            <option  value="<?php echo $tinh_thanh; ?>" selected>Chọn tỉnh thành</option>           
+                            <option  value="<?php echo $tinh_thanh; ?>" selected><?php echo $tinh_thanh; ?></option>           
                         </select>
                     </div>
                     <div class="col-6">
                         <select name="quan_huyen" class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm" required>
-                            <option  value="<?php echo $quan_huyen; ?>" selected>Chọn quận huyện</option>
+                            <option  value="<?php echo $quan_huyen; ?>" selected><?php echo $quan_huyen; ?></option>
                         </select>
                     </div>
                 </div>

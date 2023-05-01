@@ -51,7 +51,7 @@
                                         <label for="floatingInput">Email</label>
                                     </div>
                                     <div class="col-6 form-floating">
-                                        <input type="text" value="<?php echo $so_dien_thoai; ?>" name="so_dien_thoai" class="form-control" placeholder="Số điện thoại" required readonly>
+                                        <input type="text" value="<?php echo $so_dien_thoai; ?>" name="so_dien_thoai" class="form-control" placeholder="Số điện thoại" required>
                                         <label for="floatingInput">Số điện thoại</label>
                                     </div>
                                     <div class="col-12 form-floating">
@@ -59,16 +59,16 @@
                                         <label for="floatingInput">Địa chỉ</label>
                                     </div>
                                     <div class="col-6">
-                                    <select name="tinh_thanh" class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm" required>
-                                        <option value="" selected>Chọn tỉnh thành</option>           
-                                    </select>
+                                        <select name="tinh_thanh" class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm" required>
+                                            <option  value="<?php echo $tinh_thanh; ?>" selected><?php echo $tinh_thanh; ?></option>          
+                                        </select>
                                     </div>
                                     <div class="col-6">
-                                    <select name="quan_huyen" class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm" required>
-                                        <option value="" selected>Chọn quận huyện</option>
-                                    </select>
+                                        <select name="quan_huyen" class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm" required>
+                                            <option  value="<?php echo $quan_huyen; ?>" selected><?php echo $quan_huyen; ?></option>
+                                        </select>
                                     </div>
-                                    <button type="submit" name="bieu_mau_sua_thong_tin" class="btn btn-success" onclick="if (confirmAlert()) window.location.href='../'">Lưu thay đổi</button>
+                                    <button type="submit" name="bieu_mau_sua_thong_tin" class="btn btn-success"  onclick="return confirm('Bạn có chắc chắn muốn sửa thông tin không?')">Lưu thay đổi</button>
                                 </form>
                             </div>
                         </table>
@@ -77,12 +77,6 @@
             </div>
         </div>
     </body>
-    <script>
-    function confirmAlert() {
-        if (confirm("Bạn có muốn lưu thay đổi không?")) return true
-        else return false
-    }
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script>
         var citis = document.getElementById("city");
