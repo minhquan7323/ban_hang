@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 24, 2023 lúc 01:37 PM
+-- Thời gian đã tạo: Th5 02, 2023 lúc 11:48 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -78,29 +78,25 @@ CREATE TABLE `hoa_don` (
   `hang_duoc_mua` mediumtext NOT NULL,
   `ngay_mua` date NOT NULL,
   `tong_tien` int(255) NOT NULL,
-  `tinh_trang` varchar(255) NOT NULL
+  `tinh_trang` varchar(255) NOT NULL,
+  `phuong_thuc_thanh_toan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `hoa_don`
 --
 
-INSERT INTO `hoa_don` (`id`, `nguoi_dung_id`, `ten_nguoi_mua`, `email`, `dia_chi`, `quan_huyen`, `tinh_thanh`, `dien_thoai`, `noi_dung`, `hang_duoc_mua`, `ngay_mua`, `tong_tien`, `tinh_trang`) VALUES
-(22, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '30[|||]1[|||||]', '2022-07-03', 5400000, 'Đang xử lý'),
-(23, 47, 'quan1', 'quan1@gmail.com', 'áddsaas', 'Huyện Thanh Miện', 'Tỉnh Hải Dương', '547765475', 'cc', '31[|||]1[|||||]', '2023-04-20', 3790000, 'Đã xác nhận'),
-(24, 47, 'quan1', 'quan1@gmail.com', 'áddsaas', 'Huyện Thanh Miện', 'Tỉnh Hải Dương', '547765475', '', '4[|||]1[|||||]19[|||]1[|||||]', '2023-04-20', 23150000, 'Đã gửi hàng'),
-(25, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '7[|||]1[|||||]8[|||]1[|||||]', '2023-04-20', 1750000, 'Đang xử lý'),
-(26, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '14[|||]124[|||||]20[|||]2[|||||]31[|||]2[|||||]', '2023-04-21', 71016000, 'Hoàn thành'),
-(27, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '32[|||]1[|||||]', '2023-04-21', 4000000, 'Đã hủy'),
-(28, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '32[|||]3[|||||]', '2023-04-21', 12000000, 'Hoàn thành'),
-(29, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '26[|||]1[|||||]', '2023-04-21', 2600000, 'Trả hàng'),
-(30, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '32[|||]1[|||||]', '2023-04-21', 4000000, 'Đã hủy'),
-(31, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '31[|||]1[|||||]', '2023-04-21', 3790000, 'Hoàn thành'),
-(32, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '11[|||]1[|||||]', '2023-04-22', 12000000, 'Chờ xử lý'),
-(33, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '15[|||]1[|||||]', '2023-04-22', 1100000, 'Đã xác nhận'),
-(34, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '31[|||]1[|||||]', '2023-04-22', 3790000, 'Đã xác nhận'),
-(35, 46, 'quan moi', 'quan@gmail.com', 'quan moi', 'Huyện Vĩnh Bảo', 'Thành phố Hải Phòng', '123', 'dia chi moi', '32[|||]1[|||||]', '2023-04-22', 4000000, 'Hoàn thành'),
-(36, 48, 'test', 'quan2@gmail.com', 'test', 'Huyện Thanh Miện', 'Tỉnh Hải Dương', '123', 'test', '30[|||]1[|||||]', '2023-04-22', 5400000, 'Chờ xử lý');
+INSERT INTO `hoa_don` (`id`, `nguoi_dung_id`, `ten_nguoi_mua`, `email`, `dia_chi`, `quan_huyen`, `tinh_thanh`, `dien_thoai`, `noi_dung`, `hang_duoc_mua`, `ngay_mua`, `tong_tien`, `tinh_trang`, `phuong_thuc_thanh_toan`) VALUES
+(23, 47, 'quan1', 'quan1@gmail.com', 'áddsaas', 'Huyện Thanh Miện', 'Tỉnh Hải Dương', '547765475', 'cc', '31[|||]1[|||||]', '2023-04-20', 3790000, 'Đã xác nhận', 'COD'),
+(24, 47, 'quan1', 'quan1@gmail.com', 'áddsaas', 'Huyện Thanh Miện', 'Tỉnh Hải Dương', '547765475', '', '4[|||]1[|||||]19[|||]1[|||||]', '2023-04-20', 23150000, 'Đã gửi hàng', 'COD'),
+(33, 46, 'quan', 'quan@gmail.com', '123', 'Huyện Tam Nông', 'Tỉnh Phú Thọ', '123123123', '', '15[|||]1[|||||]', '2023-04-22', 1100000, 'Đã xác nhận', 'COD'),
+(35, 46, 'quan moi', 'quan@gmail.com', 'quan moi', 'Huyện Vĩnh Bảo', 'Thành phố Hải Phòng', '123', 'dia chi moi', '32[|||]1[|||||]', '2023-04-22', 4000000, 'Hoàn thành', 'COD'),
+(36, 48, 'test', 'quan2@gmail.com', 'test', 'Huyện Thanh Miện', 'Tỉnh Hải Dương', '123', 'test', '30[|||]1[|||||]', '2023-04-22', 5400000, 'Chờ xử lý', 'COD'),
+(49, 65, 'Phạm Cao Minh Quân', 'quan6@gmail.com', '23', 'Huyện Hà Quảng', 'Tỉnh Cao Bằng', '0123987232', '', '32[|||]1[|||||]', '2023-04-30', 4000000, 'Chờ xử lý', 'COD'),
+(57, 65, 'Phạm Cao Minh Quân', 'quan6@gmail.com', '23', 'Huyện Lương Tài', 'Tỉnh Bắc Ninh', '0123123123', '', '16[|||]1000[|||||]', '2023-05-01', 467000000, 'Chờ xử lý', 'Online'),
+(72, 66, 'moi', 'quan7@gmail.com', 'test', 'Thành phố Hưng Yên', 'Tỉnh Hưng Yên', '0123123123', '', '32[|||]99[|||||]', '2023-05-02', 396000000, 'Chờ xử lý', 'Online'),
+(83, 66, 'Phạm Cao Minh Quân', 'quan7@gmail.com', 'test', 'Thị xã Từ Sơn', 'Tỉnh Bắc Ninh', '0999999999', '', '30[|||]1[|||||]', '2023-05-02', 5400000, 'chờ xử lý', 'COD'),
+(84, 66, 'Phạm Cao Minh Quân', 'quan7@gmail.com', 'test', 'Thị xã Từ Sơn', 'Tỉnh Bắc Ninh', '0999999999', '', '31[|||]1[|||||]', '2023-05-02', 3790000, 'chờ xử lý', 'Online');
 
 -- --------------------------------------------------------
 
@@ -174,11 +170,13 @@ CREATE TABLE `nguoi_dung` (
 --
 
 INSERT INTO `nguoi_dung` (`nguoi_dung_id`, `tai_khoan`, `mat_khau`, `email`, `trang_thai`, `ho_ten`, `so_dien_thoai`, `dia_chi`, `tinh_thanh`, `quan_huyen`) VALUES
-(46, 'quan', 'quan', 'quan@gmail.com', '', 'quan', '123123123', '123', 'Tỉnh Phú Thọ', 'Huyện Tam Nông'),
+(46, 'quan', 'quan', 'quan@gmail.com', '', 'quan', '123123123', 'ccc', 'Tỉnh Phú Thọ', 'Huyện Tam Nông'),
 (47, 'quan1', 'quan1', 'quan1@gmail.com', 'co', 'quan1', '547765475', 'áddsaas', 'Tỉnh Hải Dương', 'Huyện Thanh Miện'),
 (48, 'quan2', 'quan2', 'quan2@gmail.com', '', 'quan2', '789989898', '123', 'Tỉnh Lào Cai', 'Huyện Bảo Thắng'),
 (56, 'test', 'test', 'test@gmail.com', '', 'ok chua', '123', 'test', 'Tỉnh Bắc Ninh', 'Huyện Quế Võ'),
-(61, '123adssad', '123', '1231231@gmail.com', '', '123', '123', 'ghjghjhg', 'Tỉnh Bắc Ninh', 'Huyện Lương Tài');
+(61, '123adssad', '123', '1231231@gmail.com', '', '123', '123', 'ghjghjhg', 'Tỉnh Bắc Ninh', 'Huyện Lương Tài'),
+(65, 'quan6', 'quan6', 'quan6@gmail.com', '', 'Phạm Cao Minh Quân', '0123123123', '23', 'Tỉnh Bắc Ninh', 'Huyện Lương Tài'),
+(66, 'quan7', 'quan7', 'quan7@gmail.com', '', 'Phạm Cao Minh Quân', '0999999999', 'test', 'Tỉnh Bắc Ninh', 'Thị xã Từ Sơn');
 
 -- --------------------------------------------------------
 
@@ -382,7 +380,7 @@ ALTER TABLE `footer`
 -- AUTO_INCREMENT cho bảng `hoa_don`
 --
 ALTER TABLE `hoa_don`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT cho bảng `menu_doc`
@@ -400,7 +398,7 @@ ALTER TABLE `menu_ngang`
 -- AUTO_INCREMENT cho bảng `nguoi_dung`
 --
 ALTER TABLE `nguoi_dung`
-  MODIFY `nguoi_dung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `nguoi_dung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT cho bảng `quang_cao`

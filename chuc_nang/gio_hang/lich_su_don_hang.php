@@ -55,8 +55,8 @@
                         }
                     ?>
                     <tr>
-                        <th></th>
-                        <th></th>
+                        <th style="text-align:end;">Phương thức thanh toán:</th>
+                        <td><?php echo $row['phuong_thuc_thanh_toan']; ?></td>
                         <th>Tổng tiền:</th>
                         <th><?= number_format($tong_lon, 0, ",", ".")."đ"; ?></th>
                         <th><a href="<?php echo $link_xem; ?>">Xem</a></th>

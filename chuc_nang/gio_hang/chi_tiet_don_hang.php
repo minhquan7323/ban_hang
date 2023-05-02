@@ -16,6 +16,7 @@
 	$hang_duoc_mua=$tv_2['hang_duoc_mua'];
 	$ngay_mua=$tv_2['ngay_mua'];
 	$tinh_trang=$tv_2['tinh_trang'];
+	$phuong_thuc_thanh_toan=$tv_2['phuong_thuc_thanh_toan'];
 ?>
 <h4 class="title">Chi tiết đơn hàng</h4>
 <div class="chi_tiet_don_hang">
@@ -69,8 +70,8 @@
 			}
 			echo '
 				<tr>
-				<td></td>
-				<td></td>
+				<th style="text-align:end;">Phương thức thanh toán:</th>
+                <td>'.$phuong_thuc_thanh_toan.'</td>
 				<td><b>Thành tiền:</b></td>
 				<td>'.number_format($tong_lon, 0, ",", ".").'<u>đ</u></td>
 				</tr>

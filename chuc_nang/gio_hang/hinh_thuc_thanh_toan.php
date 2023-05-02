@@ -123,7 +123,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <input type="hidden" name="thanh_toan" id="thanh_toan" value="Chờ xử lý">
+                                <input type="hidden" name="phuong_thuc_thanh_toan" id="phuong_thuc_thanh_toan" value="COD">
                                 <div id="thanh_toan_online">
 
                                 </div>
@@ -164,7 +164,7 @@
                 `;
                 thanh_toan_online.innerHTML = a;
                 thanh_toan_online.style.display = "block";
-                // document.getElementById("thanh_toan").value = "đã thanh toán";
+                document.getElementById("phuong_thuc_thanh_toan").value = "Online";
             }
         }
         function dia_chi_nhan_hang_moi() {

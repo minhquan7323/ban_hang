@@ -72,36 +72,44 @@
                 </div>
             </form>
         </div>
-        <div class="table-responsive-lg">
+        <div class="table-responsive-xxl">
             <form action="" method="post">
                 <table class="table table-bordered">
                     <thead>
                         <tr class="table-secondary">
                             <th scope="col">ID</th>
-                            <th scope="col">Tên Khách hàng</th>
-                            <th scope="col">Địa chỉ</th>
+                            <th scope="col" width="200px">Tên Khách hàng</th>
+                            <th scope="col" width="300px">Địa chỉ</th>
                             <th scope="col">Điện thoại</th>
                             <th scope="col">Tổng tiền</th>
+                            <th scope="col" width="100px">Thanh toán</th>
                             <th scope="col">Trạng thái</th>
-                            <th scope="col">Ngày mua</th>
+                            <th scope="col" width="100px">Ngày mua</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
                         $query = "SELECT * FROM hoa_don";
+                        $trang='';
                         if (isset($_GET['tu_ngay'], $_GET['den_ngay'])) {
                             $tu_ngay = $_GET['tu_ngay'];
                             $den_ngay = $_GET['den_ngay'];
+                            $trang = '&tu_ngay='.$tu_ngay.'&den_ngay='.$den_ngay;
                             $query .= " WHERE ngay_mua BETWEEN '$tu_ngay' AND '$den_ngay'";
+                            $query .= " order by id desc limit $vtbd,$so_dong_tren_mot_trang";
+                            $tv_1 = mysqli_query($conn, $query);
+                            $so_dong = mysqli_num_rows($tv_1);
+                            $so_trang = ceil($so_dong/$so_dong_tren_mot_trang);
                         } else if (isset($_GET['tinh_thanh'], $_GET['quan_huyen'])) {
                             $tinh_thanh = $_GET['tinh_thanh'];
                             $quan_huyen = $_GET['quan_huyen'];
+                            $trang = '&tinh_thanh='.$tinh_thanh.'&quan_huyen='.$quan_huyen;
                             $query .= " WHERE tinh_thanh = '$tinh_thanh' AND quan_huyen = '$quan_huyen'";
+                            $query .= " order by id desc limit $vtbd,$so_dong_tren_mot_trang";
+                            $tv_1 = mysqli_query($conn, $query);
+                            $so_dong = mysqli_num_rows($tv_1);
+                            $so_trang = ceil($so_dong/$so_dong_tren_mot_trang);
                         }
-                        $query .= " order by id desc limit $vtbd,$so_dong_tren_mot_trang";
-                        $tv_1 = mysqli_query($conn, $query);
-	                    // $so_trang=ceil($tv_2[0]/$so_dong_tren_mot_trang);
-                        // if (mysqli_num_rows($tv_1) > 0) {
                             while ($row = mysqli_fetch_array($tv_1)) {
                     ?>
                                 <tr>
@@ -110,6 +118,7 @@
                                     <td><?= $row['dia_chi'] . ', ' . $row['quan_huyen'] . ', ' . $row['tinh_thanh']; ?></td>
                                     <td><?= $row['dien_thoai']; ?></td>
                                     <td><?= number_format($row['tong_tien'], 0, ",", ".")."đ"; ?></td>
+                                    <td><?= $row['phuong_thuc_thanh_toan']; ?></td>
                                     <td>
                                         <select name="tinh_trang_<?php echo $row['id']; ?>">
                                             <?php
@@ -132,7 +141,6 @@
                                 </tr>
                     <?php
                             }
-                        // }
                     ?>
                     </tbody>
                 <button type="submit" name="tinh_trang_don_hang" class="btn btn-outline-success"style="width:100px;">Cập nhật</button>
@@ -142,7 +150,7 @@
         <div class="category_paging">
 			<?php 
 				for($i=1;$i<=$so_trang;$i++) {
-					$link_phan_trang="?thamso=hoa_don&trang=".$i;
+					$link_phan_trang="?thamso=hoa_don".$trang."&trang=".$i;
 					echo "<a href='$link_phan_trang' class='phan_trang' >";
 						echo $i;
 					echo "</a> ";
