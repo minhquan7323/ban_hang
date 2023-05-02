@@ -76,7 +76,7 @@
 					'$ngay_mua',
 					'$tong_tien',
 					'chờ xử lý',
-					$phuong_thuc_thanh_toan
+					'$phuong_thuc_thanh_toan'
 					);";
 				mysqli_query($conn, $tv);
 				unset($_SESSION['id_them_vao_gio']);
