@@ -17,15 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $check_email_query = "SELECT email FROM nguoi_dung WHERE email='{$email}'";
     $check_email_result = mysqli_query($conn, $check_email_query);
 
-    $check_so_dien_thoai_query = "SELECT so_dien_thoai FROM nguoi_dung WHERE so_dien_thoai='{$so_dien_thoai}'";
-    $check_so_dien_thoai_result = mysqli_query($conn, $check_so_dien_thoai_query);
-
     $phone_number_regex = '/^0\d{9}$/';
     if (!preg_match($phone_number_regex, $so_dien_thoai)) {
         echo "Số điện thoại này không hợp lệ. Vui lòng nhập số điện thoại khác.";
-    }
-    else if (mysqli_num_rows($check_so_dien_thoai_result) > 0) {
-        echo "Số điện thoại này đã có người dùng. Vui lòng chọn số khác.";
     }
     else if (mysqli_num_rows($check_tai_khoan_result) > 0) {
         echo "Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác.";
