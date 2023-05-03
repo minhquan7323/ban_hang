@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 02, 2023 lúc 11:48 AM
+-- Thời gian đã tạo: Th5 03, 2023 lúc 10:46 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -96,7 +96,11 @@ INSERT INTO `hoa_don` (`id`, `nguoi_dung_id`, `ten_nguoi_mua`, `email`, `dia_chi
 (57, 65, 'Phạm Cao Minh Quân', 'quan6@gmail.com', '23', 'Huyện Lương Tài', 'Tỉnh Bắc Ninh', '0123123123', '', '16[|||]1000[|||||]', '2023-05-01', 467000000, 'Chờ xử lý', 'Online'),
 (72, 66, 'moi', 'quan7@gmail.com', 'test', 'Thành phố Hưng Yên', 'Tỉnh Hưng Yên', '0123123123', '', '32[|||]99[|||||]', '2023-05-02', 396000000, 'Chờ xử lý', 'Online'),
 (83, 66, 'Phạm Cao Minh Quân', 'quan7@gmail.com', 'test', 'Thị xã Từ Sơn', 'Tỉnh Bắc Ninh', '0999999999', '', '30[|||]1[|||||]', '2023-05-02', 5400000, 'chờ xử lý', 'COD'),
-(84, 66, 'Phạm Cao Minh Quân', 'quan7@gmail.com', 'test', 'Thị xã Từ Sơn', 'Tỉnh Bắc Ninh', '0999999999', '', '31[|||]1[|||||]', '2023-05-02', 3790000, 'chờ xử lý', 'Online');
+(84, 66, 'Phạm Cao Minh Quân', 'quan7@gmail.com', 'test', 'Thị xã Từ Sơn', 'Tỉnh Bắc Ninh', '0999999999', '', '31[|||]1[|||||]', '2023-05-02', 3790000, 'chờ xử lý', 'Online'),
+(85, 46, 'quan', 'quan@gmail.com', 'ccc', 'Huyện Vĩnh Bảo', 'Thành phố Hải Phòng', '0456456456', '', '19[|||]1[|||||]', '2023-05-02', 150000, 'chờ xử lý', 'Online'),
+(86, 46, 'quan', 'quan@gmail.com', '000', 'Huyện Mèo Vạc', 'Tỉnh Hà Giang', '0123123123', '', '11[|||]1[|||||]', '2023-05-02', 12000000, 'chờ xử lý', 'COD'),
+(108, 67, 'moi', 'moi@gmail.com', 'moi2', 'Huyện Hà Quảng', 'Tỉnh Cao Bằng', '0123777775', '', '11[|||]1[|||||]', '2023-05-03', 12000000, 'Chờ xử lý', 'COD'),
+(109, 68, 'a', 'a@gmail.com', '123', 'Huyện Đồng Văn', 'Tỉnh Hà Giang', '0987654321', '', '30[|||]1[|||||]24[|||]1[|||||]', '2023-05-03', 6177000, 'Đã gửi hàng', 'Online');
 
 -- --------------------------------------------------------
 
@@ -170,13 +174,17 @@ CREATE TABLE `nguoi_dung` (
 --
 
 INSERT INTO `nguoi_dung` (`nguoi_dung_id`, `tai_khoan`, `mat_khau`, `email`, `trang_thai`, `ho_ten`, `so_dien_thoai`, `dia_chi`, `tinh_thanh`, `quan_huyen`) VALUES
-(46, 'quan', 'quan', 'quan@gmail.com', '', 'quan', '123123123', 'ccc', 'Tỉnh Phú Thọ', 'Huyện Tam Nông'),
+(46, 'quan', 'quan', 'quan@gmail.com', '', 'quan', '0456456456', 'ccc', 'Thành phố Hải Phòng', 'Huyện Vĩnh Bảo'),
 (47, 'quan1', 'quan1', 'quan1@gmail.com', 'co', 'quan1', '547765475', 'áddsaas', 'Tỉnh Hải Dương', 'Huyện Thanh Miện'),
 (48, 'quan2', 'quan2', 'quan2@gmail.com', '', 'quan2', '789989898', '123', 'Tỉnh Lào Cai', 'Huyện Bảo Thắng'),
 (56, 'test', 'test', 'test@gmail.com', '', 'ok chua', '123', 'test', 'Tỉnh Bắc Ninh', 'Huyện Quế Võ'),
 (61, '123adssad', '123', '1231231@gmail.com', '', '123', '123', 'ghjghjhg', 'Tỉnh Bắc Ninh', 'Huyện Lương Tài'),
 (65, 'quan6', 'quan6', 'quan6@gmail.com', '', 'Phạm Cao Minh Quân', '0123123123', '23', 'Tỉnh Bắc Ninh', 'Huyện Lương Tài'),
-(66, 'quan7', 'quan7', 'quan7@gmail.com', '', 'Phạm Cao Minh Quân', '0999999999', 'test', 'Tỉnh Bắc Ninh', 'Thị xã Từ Sơn');
+(66, 'quan7', 'quan7', 'quan7@gmail.com', '', 'Phạm Cao Minh Quân', '0999999999', 'test', 'Tỉnh Bắc Ninh', 'Thị xã Từ Sơn'),
+(67, 'moi', 'moi', 'moi@gmail.com', '', 'moi', '0123777775', 'moi2', 'Tỉnh Cao Bằng', 'Huyện Hà Quảng'),
+(68, 'a', 'a', 'a@gmail.com', 'co', 'a', '0987654321', '123', 'Tỉnh Hà Giang', 'Huyện Đồng Văn'),
+(69, 'b', 'b', 'b@gmail.com', '', 'b', '0123123123', 'b', 'Tỉnh Hà Giang', 'Huyện Mèo Vạc'),
+(70, 'c', 'c', 'c@gmail.com', '', 'c', '0456456456', 'c', 'Tỉnh Tuyên Quang', 'Huyện Sơn Dương');
 
 -- --------------------------------------------------------
 
@@ -380,7 +388,7 @@ ALTER TABLE `footer`
 -- AUTO_INCREMENT cho bảng `hoa_don`
 --
 ALTER TABLE `hoa_don`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT cho bảng `menu_doc`
@@ -398,7 +406,7 @@ ALTER TABLE `menu_ngang`
 -- AUTO_INCREMENT cho bảng `nguoi_dung`
 --
 ALTER TABLE `nguoi_dung`
-  MODIFY `nguoi_dung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `nguoi_dung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT cho bảng `quang_cao`
