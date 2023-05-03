@@ -47,23 +47,25 @@
 					$m_2 = explode("[|||]", $m[$i]);
 					$id_sp = $m_2[0];
 					$sl_sp = $m_2[1];
-					$tv_sp = "SELECT id, ten, gia FROM san_pham WHERE id = '$id_sp'";
-					$tv_sp_1 = mysqli_query($conn, $tv_sp);
-					$tv_sp_2 = mysqli_fetch_array($tv_sp_1);
-					$ten = $tv_sp_2['ten'];
-					$gia = $tv_sp_2['gia'];
-					$tong = $gia * $sl_sp;
-					$tong_lon += $tong;
+					if($id_sp!=0) {
+						$tv_sp = "SELECT id, ten, gia FROM san_pham WHERE id = '$id_sp'";
+						$tv_sp_1 = mysqli_query($conn, $tv_sp);
+						$tv_sp_2 = mysqli_fetch_array($tv_sp_1);
+						$ten = $tv_sp_2['ten'];
+						$gia = $tv_sp_2['gia'];
+						$tong = $gia * $sl_sp;
+						$tong_lon += $tong;
 
-					if ($sl_sp != 0) {
-						?>
-						<tr>
-							<td><?php echo $ten; ?></td>
-							<td><?php echo number_format($gia, 0, ",", "."); ?><u>đ</u></td>
-							<td><?php echo $sl_sp; ?></td>
-							<td><?php echo number_format($tong, 0, ",", "."); ?><u>đ</u></td>
-						</tr>
+						if ($sl_sp != 0) {
+							?>
+							<tr>
+								<td><?php echo $ten; ?></td>
+								<td><?php echo number_format($gia, 0, ",", "."); ?><u>đ</u></td>
+								<td><?php echo $sl_sp; ?></td>
+								<td><?php echo number_format($tong, 0, ",", "."); ?><u>đ</u></td>
+							</tr>
 			<?php
+						}
 					}
 				}
 				

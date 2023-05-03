@@ -13,7 +13,7 @@
 	$quan_huyen=$tv_uid_2['quan_huyen'];
 	$phuong_thuc_thanh_toan=$_POST['phuong_thuc_thanh_toan'];
 
-	if(isset($_SESSION['id_them_vao_gio'])) {
+	if(isset($_SESSION['id_them_vao_gio'])&&$_SESSION['id_them_vao_gio']!=0&&$_SESSION['id_them_vao_gio']!=0) {
 		$ho_ten = trim($ho_ten);
 		$so_dien_thoai=trim($so_dien_thoai);
 		$dia_chi=trim(nl2br($dia_chi));
@@ -26,10 +26,11 @@
 		for ($i = 0; $i < count($_SESSION['id_them_vao_gio']); $i++) {
 			$hang_duoc_mua = $hang_duoc_mua . $_SESSION['id_them_vao_gio'][$i] . "[|||]" . $_SESSION['sl_them_vao_gio'][$i] . "[|||||]";
 			$id_san_pham = $_SESSION['id_them_vao_gio'][$i];
-			$query = "SELECT gia FROM san_pham WHERE id = $id_san_pham";
+			$query = "SELECT gia FROM san_pham WHERE id = '$id_san_pham'";
 			$result = mysqli_query($conn, $query);
 			$row = mysqli_fetch_assoc($result);
-			$gia = $row['gia'];
+			if($id_san_pham==0) $gia = 0;
+			else $gia = $row['gia'];
 			
 			$sl = $_SESSION['sl_them_vao_gio'][$i];
 			$tong_tien += $gia * $sl;

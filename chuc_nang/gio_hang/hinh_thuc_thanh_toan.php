@@ -83,7 +83,8 @@
                                         $tv_1 = mysqli_query($conn, $tv);
                                         $tv_2 = mysqli_fetch_array($tv_1);
                                         
-                                        $tien=$tv_2['gia']*$_SESSION['sl_them_vao_gio'][$i];
+                                        if($_SESSION['sl_them_vao_gio'][$i]==0) $tien=0;
+                                        else $tien=$tv_2['gia']*$_SESSION['sl_them_vao_gio'][$i];
                                         $tong_cong=$tong_cong+$tien;
                                         $name_id="id_".$i;
                                         $name_sl="sl_".$i;
