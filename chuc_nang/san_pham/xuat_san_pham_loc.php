@@ -11,7 +11,7 @@
 				$loc_query = '';
 				foreach($loc_gia_arr as $value2) {
 					foreach($phan_loai_arr as $value) {
-						if($loc_query == '') $loc_query = ' WHERE ';
+						if($loc_query == '') $loc_query = ' WHERE trang_chu="co" and ';
 						else $loc_query .= ' OR ';
 						$loc_query .= "(thuoc_menu = '$value' AND ";
 						if($value2 == '10000000') $loc_query .= 'gia > 10000000)';
@@ -77,7 +77,7 @@
 				$loc_gia_arr = $_GET['loc_gia'];
 				$loc_gia_query = '';
 				foreach($loc_gia_arr as $value) {
-					if($loc_gia_query == '') $loc_gia_query = ' WHERE ';
+					if($loc_gia_query == '') $loc_gia_query = ' WHERE trang_chu="co" and ';
 					else $loc_gia_query .= ' OR ';
 					if($value == '10000000') $loc_gia_query .= '(gia > 10000000)';
 					else {
@@ -141,7 +141,7 @@
 				$phan_loai_arr = $_GET['phan_loai'];
 				$phan_loai_query = '';
 				foreach($phan_loai_arr as $value) {
-					if($phan_loai_query == '') $phan_loai_query = ' WHERE ';
+					if($phan_loai_query == '') $phan_loai_query = ' WHERE trang_chu="co" and ';
 					else $phan_loai_query .= ' OR ';
 					$phan_loai_query .= "(thuoc_menu = '$value')";
 				}

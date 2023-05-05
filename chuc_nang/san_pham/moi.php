@@ -4,7 +4,7 @@
 		$conn = new mysqli("localhost", "root", "", "ban_hang");
 		if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 		
-		$tv = "SELECT id, ten, hinh_anh FROM san_pham ORDER BY id DESC LIMIT 0,3";
+		$tv = "SELECT id, ten, hinh_anh FROM san_pham WHERE trang_chu='co' ORDER BY id DESC LIMIT 0,3";
 		$tv_1 = $conn->query($tv);
 		
 		while($tv_2 = $tv_1->fetch_assoc()) {
